@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Jaiveer Bala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">JB</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="projects-hero">
+    <div class="section-label">Work</div>
+    <h1>All Projects</h1>
+    <p>A collection of physical builds, robotics work, embedded systems, and software.</p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="robotics">Robotics</button>
+    <button class="filter-btn" data-filter="mechanical">Mechanical</button>
+    <button class="filter-btn" data-filter="embedded">Embedded / Electrical</button>
+    <button class="filter-btn" data-filter="software">Software</button>
+    <button class="filter-btn" data-filter="concept">Concept</button>
+  </div>
+
+  <!-- PROJECTS GRID -->
+  <div class="projects-grid-wrap">
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- ── ROBOTICS ──────────────────────────────────── -->
+
+      <!-- FTC Decode Robot -->
+      <div class="proj-card" data-category="robotics" data-id="decode-robot" id="decode-robot">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=19JJae178axCHyY_Gw1fYwT80FhdZ96IB&sz=w800" alt="FTC Decode Robot" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">FTC Decode Robot</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Robotics</span>
+            <span class="proj-year">2025–26</span>
+          </div>
+          <div class="proj-card-title">FTC Decode Robot</div>
+          <div class="proj-card-desc">World record–setting FTC competition robot. As Mechanical Lead, oversaw design and production of every mechanism while personally building the drivetrain and turreted shooter.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- FTC Into the Deep Robot -->
+      <div class="proj-card" data-category="robotics" data-id="itd-robot" id="itd-robot">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1TplwcIBwEXGC_N5MCZcC9jK7DPHLuyl3&sz=w800" alt="FTC Into the Deep Robot" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">FTC Into the Deep Robot</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Robotics</span>
+            <span class="proj-year">2024–25</span>
+          </div>
+          <div class="proj-card-title">FTC Into the Deep Robot</div>
+          <div class="proj-card-desc">Led the full mechanical design of this competition robot. Personally designed and built the drivetrain, horizontal intake slides, and miniturret intaking arm from scratch.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- ── MECHANICAL ─────────────────────────────────── -->
+
+      <!-- Differential Swerve Drivebase -->
+      <div class="proj-card" data-category="mechanical" data-id="swerve-db" id="swerve-db">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1WHtm_fNP6pyyyeiWpvD4lPmt6DQnk0Id&sz=w800" alt="Differential Swerve" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">Differential Swerve</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Mechanical</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <div class="proj-card-title">Differential Swerve Drivebase</div>
+          <div class="proj-card-desc">A personal project designed entirely solo — applies differential gearing principles to achieve any combination of wheel rotation and pod steering simultaneously with just two motors per pod.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- 2-Speed Transmission -->
+      <div class="proj-card" data-category="mechanical" data-id="transmission" id="transmission">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1VtS_eZzhH45S_SjUJU_xGqxYNzUBldcD&sz=w800" alt="2-Speed Transmission" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">2-Speed Transmission</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Mechanical</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <div class="proj-card-title">2-Speed Transmission</div>
+          <div class="proj-card-desc">Servo-actuated spring-loaded transmission that shifts between 1:1 and 5:3 gear ratios in under a second. Designed in SolidWorks for FTC endgame tasks requiring extra torque.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Differential Wrist -->
+      <div class="proj-card" data-category="mechanical" data-id="diff-wrist" id="diff-wrist">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1T4uwEKzM8AsRLxy0V6C-Z5gHWMmxVXkS&sz=w800" alt="Differential Wrist" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">Differential Wrist</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Mechanical</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <div class="proj-card-title">Differential Wrist (ITD Claw)</div>
+          <div class="proj-card-desc">A two-degree-of-freedom wrist mechanism using differential gearing to achieve simultaneous orbit and rotation of a claw. Designed in SolidWorks for specimen pickup and scoring.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Second Drone -->
+      <div class="proj-card" data-category="mechanical" data-id="second-drone" id="second-drone">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1XrqQLYmFmdO3kwKCpUzvusFZ-NmRhNnU&sz=w800" alt="Second Drone" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">Second Drone</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Mechanical</span>
+            <span class="proj-year">2024</span>
+          </div>
+          <div class="proj-card-title">FPV Drone (v2)</div>
+          <div class="proj-card-desc">Improved on the first build with an integrated FPV camera, 3D-printed custom mounts, higher-quality components, and Betaflight configuration to get mismatched parts working together.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- First Drone -->
+      <div class="proj-card" data-category="mechanical" data-id="first-drone" id="first-drone">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1W0aF_IL6ML95fFxSNRyZKJ6zbF6psJZE&sz=w800" alt="First Drone" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">First Drone</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Mechanical</span>
+            <span class="proj-year">2023 · 6th Grade</span>
+          </div>
+          <div class="proj-card-title">First Drone Build</div>
+          <div class="proj-card-desc">Built from scratch in 6th grade using a kit frame and sourced components. Required custom soldering and Betaflight software work to get mismatched parts flying together. Line-of-sight.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- ── EMBEDDED / ELECTRICAL ───────────────────────── -->
+
+      <!-- Door Lock -->
+      <div class="proj-card" data-category="embedded" data-id="door-lock" id="door-lock">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1Dl6GD9PxnoNj1CXvueQ_nMT-93oQ_ACa&sz=w800" alt="Smart Door Lock" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">Smart Door Lock</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Embedded</span>
+            <span class="proj-year">2022–Present</span>
+          </div>
+          <div class="proj-card-title">Smart Door Lock (v1 & v2)</div>
+          <div class="proj-card-desc">RFID and NFC-based deadbolt lock. The current version uses an Arduino Nano, RC522 module, custom compact enclosure with countersunk screws, integrated LiPo charging, and auto-locks after 1 minute.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Acoustic Levitator -->
+      <div class="proj-card" data-category="embedded" data-id="levitator" id="levitator">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1KSUTiZS916jiQrt7oe8TT7xcsMbn9wBD&sz=w800" alt="Acoustic Levitator" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">Acoustic Levitator</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Embedded</span>
+            <span class="proj-year">2023 · 7th Grade</span>
+          </div>
+          <div class="proj-card-title">Acoustic Levitator</div>
+          <div class="proj-card-desc">Desoldered transmitters from SR04 ultrasonic sensors and amplified them with a motor controller to create standing waves between opposing transducers. Small foam balls float in midair.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Pi Server -->
+      <div class="proj-card" data-category="embedded" data-id="pi-server" id="pi-server">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1UxBVZ6SURoO4J-9Z2oGo8u7BlmX8rRsd&sz=w800" alt="Pi Server" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">Pi Server</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Embedded</span>
+            <span class="proj-year">2025 · 8th Grade</span>
+          </div>
+          <div class="proj-card-title">Raspberry Pi CAD File Server</div>
+          <div class="proj-card-desc">Self-hosted Raspberry Pi 3B+ server running Resilio Sync to keep FTC team CAD files in sync across all devices. Built to solve a gap before SolidWorks offered free student PDM.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- ── SOFTWARE ────────────────────────────────────── -->
+
+      <!-- JVPlanner -->
+      <div class="proj-card" data-category="software" data-id="jvplanner" id="jvplanner">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=16Fn7U-yWy09H_x3px5wllQrIXVaK59nP&sz=w800" alt="JVPlanner" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">JVPlanner</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Software</span>
+            <span class="proj-year">2026 · 9th Grade</span>
+          </div>
+          <div class="proj-card-title">JVPlanner — Custom Calendar App</div>
+          <div class="proj-card-desc">Built a personal productivity app after no existing tool worked the way I needed. Three calendars (general, school, college), integrated to-do lists, daily summary, Canvas auto-import every hour, phone notifications, and Google OAuth.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Space Invaders -->
+      <div class="proj-card" data-category="software" data-id="space-invaders" id="space-invaders">
+        <div class="proj-card-media">
+          <div class="proj-card-media" style="background:#1a1814; display:flex; align-items:center; justify-content:center;">
+            <span style="color:#f0e8e0; font-family:'Fraunces',serif; font-size:1.4rem; letter-spacing:.05em;">SPACE INVADERS</span>
+          </div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Software</span>
+            <span class="proj-year">2024 · 7th Grade</span>
+          </div>
+          <div class="proj-card-title">Space Invaders Recreation</div>
+          <div class="proj-card-desc">Close recreation of the original Space Invaders game for an intro CS final project. Named the most complex and most interesting submission by the instructor.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Tic Tac Toe -->
+      <div class="proj-card" data-category="software" data-id="tictactoe" id="tictactoe">
+        <div class="proj-card-media" style="background:#f0e8e0; display:flex; align-items:center; justify-content:center; min-height:180px;">
+          <span style="font-family:'Fraunces',serif; font-size:3rem; color:#c8602a; opacity:.6;">✕ ○ ✕</span>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Software</span>
+            <span class="proj-year">2023 · 7th Grade</span>
+          </div>
+          <div class="proj-card-title">Unbeatable Tic-Tac-Toe</div>
+          <div class="proj-card-desc">Python console Tic-Tac-Toe against the computer. No AI — just hardcoded cases, multi-step simulated lookaheads, and fork detection. Essentially unbeatable; most games end in a draw.</div>
+        </div>
+        <div class="proj-card-footer">
+          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- ── CONCEPT ──────────────────────────────────────── -->
+
+      <!-- CleanFlight -->
+      <div class="proj-card" data-category="concept" data-id="cleanflight" id="cleanflight">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1Eu86bBUE3u3CfOdCnojr8bUt-mbOFF2V&sz=w800" alt="CleanFlight" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">CleanFlight Concept</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta">
+            <span class="proj-type">Concept</span>
+            <span class="proj-year">2025</span>
+          </div>
+          <div class="proj-card-title">CleanFlight — AI Drone Cleaning Fleet</div>
+          <div class="proj-card-desc">Engineering challenge concept: a self-coordinating fleet of AI drones with vacuum pickups that autonomously map and clean outdoor areas in a fraction of the time of a human crew.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+  </div><!-- /projects-grid-wrap -->
+
+  <!-- ── MODALS ──────────────────────────────────────────────────── -->
+
+  <!-- Decode Robot Modal -->
+  <div class="modal-overlay" id="modal-decode-robot">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Robotics · 2025–26</div>
+        <div class="modal-title">FTC Decode Robot</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=19JJae178axCHyY_Gw1fYwT80FhdZ96IB&sz=w1200" alt="Decode Robot" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=18D5RI5re7nUSd-GT_H636rMcIhenKQR0&sz=w600" alt="Drivebase"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1AyFoTld8zfvjS0-PNyHl2wPtb_PL5h5d&sz=w600" alt="Robot Isometric"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1DufAY6Ccn2jY04r3C7lc3VE1d1_rQogm&sz=w600" alt="Park Tech"/></div>
+        </div>
+        <p class="modal-desc">
+          The FTC Decode robot is the culmination of the 2025–26 season. As Mechanical Lead, I oversaw
+          the design, production, and assembly of every subsystem on the robot while personally
+          engineering the drivetrain and turreted shooter mechanism — a ball launcher mounted on an
+          independent turret that can rotate without the robot itself turning, giving us a significant
+          scoring advantage.
+        </p>
+        <ul class="modal-bullets">
+          <li>Set the solo world record and global match world record in November 2025</li>
+          <li>Set the autonomous world record at the NorCal Regional Championship</li>
+          <li>Personally designed and built the full drivetrain and turreted shooter mechanism</li>
+          <li>Led design, production, and assembly oversight of all other mechanisms as Mechanical Lead</li>
+          <li>Developed early versions of the ball transfer mechanism</li>
+          <li>MTI submission video: <a href="https://www.youtube.com/watch?v=zmQtI1yW2aY" target="_blank" style="color:var(--accent);">youtube.com/watch?v=zmQtI1yW2aY</a></li>
+        </ul>
+        <div class="modal-links">
+          <a href="https://www.youtube.com/watch?v=zmQtI1yW2aY" class="btn btn-primary" target="_blank" rel="noopener">Watch MTI Video</a>
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITD Robot Modal -->
+  <div class="modal-overlay" id="modal-itd-robot">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Robotics · 2024–25</div>
+        <div class="modal-title">FTC Into the Deep Robot</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1TplwcIBwEXGC_N5MCZcC9jK7DPHLuyl3&sz=w1200" alt="ITD Robot" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1hTBkF0zsWsEAgIsHL8RWv7fnFJXJGHku&sz=w600" alt="Exploded View"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1stqJpviB1ZCYIpS3N1s01c5XMRWJ5Dwo&sz=w600" alt="Slides Out"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1sJtoQds4u09N0yfe5fhdGm-clAemijms&sz=w600" alt="Intake"/></div>
+        </div>
+        <p class="modal-desc">
+          My first season as Mechanical Lead. I led the design of the entire robot, managed team members
+          working on individual mechanisms, and personally designed and built three key systems from scratch.
+        </p>
+        <ul class="modal-bullets">
+          <li>Designed and built the full drivetrain independently</li>
+          <li>Designed and built the horizontal intake slide system</li>
+          <li>Designed and built the miniturret intaking arm</li>
+          <li>Prototyped every mechanism and iterated throughout the season to maximize scoring</li>
+          <li>Managed and advised team members on all other mechanisms as Mechanical Lead</li>
+        </ul>
+        <div class="modal-links">
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swerve DB Modal -->
+  <div class="modal-overlay" id="modal-swerve-db">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Mechanical · 2025</div>
+        <div class="modal-title">Differential Swerve Drivebase</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1WHtm_fNP6pyyyeiWpvD4lPmt6DQnk0Id&sz=w1200" alt="Swerve Drivebase" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1vLeLC4NvE_T6yFJIhHQPNCuACb38k21J&sz=w600" alt="Real photo"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=19LxDRlB2Hin3QuzbdX4i3n3H9_r-MWZy&sz=w600" alt="CAD Revamped"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1IbIsbCJNneE1z4CSOq51JozrE1fgTX-W&sz=w600" alt="v1 vs v2"/></div>
+        </div>
+        <p class="modal-desc">
+          A personal project done entirely solo. Differential gearing is a common principle in robotics
+          — I applied it to a drivetrain where two motors per pod, acting through a differential, can
+          independently control both wheel rotation speed and pod steering angle simultaneously, giving
+          infinite combinations of motion with just two motors per side.
+        </p>
+        <ul class="modal-bullets">
+          <li>Designed entirely in SolidWorks CAD from scratch</li>
+          <li>Manufactured, assembled, and tested the full physical prototype</li>
+          <li>Used differential gearing: two motors per pod for independent wheel + steering control</li>
+          <li>Two pods total — four motors drive the entire robot with omnidirectional capability</li>
+          <li>3D-printed prototype validated the concept; metal manufacturing cost prevented competition use</li>
+        </ul>
+        <div class="modal-links">
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transmission Modal -->
+  <div class="modal-overlay" id="modal-transmission">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Mechanical · 2025</div>
+        <div class="modal-title">2-Speed Transmission</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1VtS_eZzhH45S_SjUJU_xGqxYNzUBldcD&sz=w1200" alt="2-Speed Transmission" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=16Hx00zeVomg7eKAsiKboNtL9NhQRn_bL&sz=w600" alt="Top View"/></div>
+        </div>
+        <p class="modal-desc">
+          A servo-actuated 2-speed transmission designed in SolidWorks for FTC robotics. Switches between
+          1:1 and 5:3 gear ratios in under a second using a spring-loaded linear shift along a shaft.
+          Particularly useful for endgame tasks where a mechanism needs to be fast during normal play
+          but requires more torque at the end of the match.
+        </p>
+        <ul class="modal-bullets">
+          <li>Designed in SolidWorks CAD</li>
+          <li>Switches between 1:1 and 5:3 torque ratio in under one second</li>
+          <li>Spring-loaded linear shift actuated by a servo motor</li>
+          <li>Designed specifically for FTC endgame linear slide applications</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Differential Wrist Modal -->
+  <div class="modal-overlay" id="modal-diff-wrist">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Mechanical · 2025</div>
+        <div class="modal-title">Differential Wrist (ITD Claw)</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1T4uwEKzM8AsRLxy0V6C-Z5gHWMmxVXkS&sz=w1200" alt="Differential Wrist" />
+        </div>
+        <p class="modal-desc">
+          A two-DOF wrist mechanism for the Into the Deep season robot. Uses a differential gearing
+          system so that both the orbit angle and the claw rotation can be controlled simultaneously
+          with cleaner wire routing and simpler kinematics than handling each DOF separately.
+        </p>
+        <ul class="modal-bullets">
+          <li>Designed in SolidWorks CAD</li>
+          <li>Differential gearing achieves simultaneous orbit and rotation of the claw</li>
+          <li>Enables picking up specimens off the field wall and repositioning for optimal scoring</li>
+          <li>Simpler wire management versus two independently driven DOFs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Drone Modal -->
+  <div class="modal-overlay" id="modal-second-drone">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Mechanical · 2024 · 8th Grade</div>
+        <div class="modal-title">FPV Drone (v2)</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1XrqQLYmFmdO3kwKCpUzvusFZ-NmRhNnU&sz=w1200" alt="Second Drone" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1sMvg3nZdh8bNlksoDx4mmjsmnyJGtM5n&sz=w600" alt="Drone 1"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1ih0Dvuq5pLyLFRBmijz3g5n9MrdXcCQC&sz=w600" alt="Drone 2"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1tAT6Aw93KOuEn9aUi6IMb1wlKss5RwkG&sz=w600" alt="Drone 3"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1k1Mf7J2EmnrIQdA8rtG4Biaey9k8-Vjc&sz=w600" alt="Drone 4"/></div>
+        </div>
+        <p class="modal-desc">
+          Applying lessons from the first build, this drone integrates a first-person view camera, 
+          higher quality components, and 3D-printed custom mounts for antennas and component adapters.
+          Configured using the open-source Betaflight software.
+        </p>
+        <ul class="modal-bullets">
+          <li>Integrated FPV camera — first drone with a real-time video feed</li>
+          <li>3D-printed custom antenna mounts and component adapters</li>
+          <li>Higher quality motors, ESC, and flight controller versus v1</li>
+          <li>Custom wiring and soldering required to integrate mismatched components</li>
+          <li>Programmed and tuned using open-source Betaflight flight controller software</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- First Drone Modal -->
+  <div class="modal-overlay" id="modal-first-drone">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Mechanical · 2023 · 6th Grade</div>
+        <div class="modal-title">First Drone Build</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1W0aF_IL6ML95fFxSNRyZKJ6zbF6psJZE&sz=w1200" alt="First Drone" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1poXDKBKThuO-FPCHxx7ygP5-oETPKNFL&sz=w600" alt="Drone parts"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=12QfxUUtxVRrtOSvOisbs9slL-qLQqBHj&sz=w600" alt="Drone assembled"/></div>
+        </div>
+        <p class="modal-desc">
+          My first complete drone build, done in 6th grade. Used a kit frame from Amazon and sourced
+          motors, flight controller, ESC, and radio receiver from various vendors. Most parts weren't
+          designed to work together, requiring custom soldering and software configuration to get airborne.
+          Flown line-of-sight with a standard hobby RC transmitter.
+        </p>
+        <ul class="modal-bullets">
+          <li>Built entirely from scratch in 6th grade — first drone project</li>
+          <li>Amazon kit frame with individually sourced motors, ESC, flight controller, and receiver</li>
+          <li>Custom soldering and software configuration to integrate incompatible components</li>
+          <li>Flown line-of-sight — no FPV camera (fixed in v2)</li>
+          <li>Standard hobby RC transmitter and receiver — short range</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Door Lock Modal -->
+  <div class="modal-overlay" id="modal-door-lock">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Embedded · 2022–Present</div>
+        <div class="modal-title">Smart Door Lock (v1 & v2)</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1Dl6GD9PxnoNj1CXvueQ_nMT-93oQ_ACa&sz=w1200" alt="Door Lock" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1JOLntWy8lSpcfxRM3BiSvW_xPwKTyOU7&sz=w600" alt="Lock 2"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1AMEjCITCSMRL7T3LKP85D3uBwLnOTbQP&sz=w600" alt="Lock 3"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1rwcvjZPWoT49GqiQ69lz96jrylKH1NoH&sz=w600" alt="Lock internals"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1g7VJ3Ypef4HnN85uyDDSotN5iXXmbOB4&sz=w600" alt="Lock detail"/></div>
+        </div>
+        <p class="modal-desc">
+          An ongoing project evolving since 6th grade. The original version used an RFID sensor and servo
+          mounted in a drilled-out outlet fuse box. The current version is a fully redesigned system with
+          a custom compact enclosure, integrated power management, and phone unlock support.
+        </p>
+        <ul class="modal-bullets">
+          <li><strong>v1 (2022):</strong> RFID fob detection → servo actuating deadbolt, powered by outlet adapter, mounted in a drilled fuse box</li>
+          <li><strong>v2 (current):</strong> Arduino Nano + RC522 RFID module in a custom-designed compact enclosure</li>
+          <li>Unlockable via RFID fobs or phone NFC — NFC sticker on front of enclosure</li>
+          <li>Integrated LiPo battery with dedicated charging system — recharges weekly</li>
+          <li>Auto-locks after 1 minute</li>
+          <li>Countersunk screws, clean custom case design</li>
+        </ul>
+        <div class="modal-links">
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acoustic Levitator Modal -->
+  <div class="modal-overlay" id="modal-levitator">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Embedded · Electrical · 2023 · 7th Grade</div>
+        <div class="modal-title">Acoustic Levitator</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1KSUTiZS916jiQrt7oe8TT7xcsMbn9wBD&sz=w1200" alt="Acoustic Levitator" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1xUVhcJFcPCD6CLHFj73zRYqn3DSheiof&sz=w600" alt="Testbench 1 ball"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1l0wjn-Ht29NJP0MopNqDDRJDAgA7bZso&sz=w600" alt="Testbench 3 balls"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=132a4l4wKOp5RNv3bix8i9SzHuHmsBiK7&sz=w600" alt="Circuit"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1r1eewjA-Ek3Wx2VPFsubvCF0keM-9fc7&sz=w600" alt="Motor controller test"/></div>
+        </div>
+        <p class="modal-desc">
+          Standing waves between two opposing ultrasonic transducers create nodes of pressure
+          that can suspend small objects in midair without any physical contact. Built by desoldering
+          the transmitters from SR04 sensors and driving them with a motor controller for amplification.
+        </p>
+        <ul class="modal-bullets">
+          <li>Desoldered ultrasonic transmitters from SR04 sensors</li>
+          <li>Powered through a motor controller to amplify output — more than stock driver circuits provide</li>
+          <li>Required careful physical alignment and distance calibration to find the standing wave sweet spot</li>
+          <li>3D-printed enclosure once a working alignment was found</li>
+          <li>Plug-in power cable on the back powers both the Arduino and motor controller</li>
+          <li>Can stack multiple pieces of foam into spinning rings of levitated balls</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pi Server Modal -->
+  <div class="modal-overlay" id="modal-pi-server">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Embedded · 2025 · 8th Grade</div>
+        <div class="modal-title">Raspberry Pi CAD File Server</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1UxBVZ6SURoO4J-9Z2oGo8u7BlmX8rRsd&sz=w1200" alt="Pi Server" />
+        </div>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1_ge9X5-omAmHBr-TdtDuTPLDNRKcGMsp&sz=w600" alt="Pi 2"/></div>
+          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1jEz1LymZOUYFFQVXQSY-QBQusLEpecjq&sz=w600" alt="Pi 3"/></div>
+        </div>
+        <p class="modal-desc">
+          Built a self-hosted file server for the FTC robotics team to solve a real workflow problem:
+          SolidWorks didn't offer free student PDM (file sharing) at the time, leaving the team without
+          a reliable way to sync CAD files across members.
+        </p>
+        <ul class="modal-bullets">
+          <li>Raspberry Pi 3B+ running 24/7 in my room as a persistent sync node</li>
+          <li>Resilio Sync monitors the shared folder and pushes changes to all connected devices</li>
+          <li>Always-on server ensures the latest files are available even when all other devices are offline</li>
+          <li>Built as a workaround before SolidWorks offered free student PDM licenses</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- JVPlanner Modal -->
+  <div class="modal-overlay" id="modal-jvplanner">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Software · 2026 · 9th Grade</div>
+        <div class="modal-title">JVPlanner — Custom Calendar App</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=16Fn7U-yWy09H_x3px5wllQrIXVaK59nP&sz=w1200" alt="JVPlanner screenshot" />
+        </div>
+        <p class="modal-desc">
+          After trying Notion, Apple Calendar, Reminders, and others and finding something wrong with
+          each one, I built my own. JVPlanner is a custom calendar and task management app that works
+          exactly the way I need it to — hosted on GitHub, accessible as a PWA on iPhone.
+        </p>
+        <ul class="modal-bullets">
+          <li>Three separate calendars: General, School, and College — plus an Everything tab</li>
+          <li>Integrated to-do list per calendar, synced with daily calendar events</li>
+          <li>Daily summary view on open; completed tasks section</li>
+          <li>Automatically imports Canvas assignments every hour</li>
+          <li>Push notifications to phone for upcoming tasks</li>
+          <li>Google Cloud Services OAuth — only I can log in, works seamlessly across all devices</li>
+          <li>Downloadable as a PWA on iOS; works on Mac, phone, and laptop</li>
+          <li>Custom color scheme</li>
+        </ul>
+        <div class="modal-links">
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Space Invaders Modal -->
+  <div class="modal-overlay" id="modal-space-invaders">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Software · 2024 · 7th Grade</div>
+        <div class="modal-title">Space Invaders Recreation</div>
+        <div class="modal-media" style="background:#1a1814; min-height:200px; display:flex; align-items:center; justify-content:center;">
+          <span style="color:#f0e8e0; font-family:'Fraunces',serif; font-size:2rem; letter-spacing:.1em;">SPACE INVADERS</span>
+        </div>
+        <p class="modal-desc">
+          A close recreation of the original Space Invaders arcade game, built as the final project for
+          an intro to computer science elective in 7th grade. The instructor named it the most complex
+          and most interesting submission in the class.
+        </p>
+        <ul class="modal-bullets">
+          <li>Close recreation of the original 1978 Space Invaders game mechanics</li>
+          <li>Final project for 7th grade intro CS elective</li>
+          <li>Named most complex and most interesting final project by the instructor</li>
+        </ul>
+        <div class="modal-links">
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tic Tac Toe Modal -->
+  <div class="modal-overlay" id="modal-tictactoe">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Software · 2023 · 7th Grade</div>
+        <div class="modal-title">Unbeatable Tic-Tac-Toe</div>
+        <div class="modal-media" style="background:#f0e8e0; min-height:160px; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'Fraunces',serif; font-size:4rem; color:#c8602a; opacity:.5;">✕ ○ ✕</span>
+        </div>
+        <p class="modal-desc">
+          A Python console Tic-Tac-Toe game against the computer. No machine learning or AI — just
+          hardcoded logic, multi-step simulated lookaheads, fork detection and blocking. The result is
+          a computer that essentially can't be beaten; most games end in a draw.
+        </p>
+        <ul class="modal-bullets">
+          <li>Python console-based, player vs. computer</li>
+          <li>Computer attempts to fork the player (create two simultaneous winning threats)</li>
+          <li>Computer detects and blocks player fork attempts early</li>
+          <li>Uses hardcoded cases, search algorithms, and multi-step simulated outcome trees — no AI</li>
+          <li>Essentially unbeatable — most games result in a tie; some in a computer win</li>
+        </ul>
+        <div class="modal-links">
+          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CleanFlight Modal -->
+  <div class="modal-overlay" id="modal-cleanflight">
+    <div class="modal">
+      <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
+      <div class="modal-inner">
+        <div class="modal-tag">Concept · 2025</div>
+        <div class="modal-title">CleanFlight — AI Drone Cleaning Fleet</div>
+        <div class="modal-media">
+          <img src="https://drive.google.com/thumbnail?id=1Eu86bBUE3u3CfOdCnojr8bUt-mbOFF2V&sz=w1200" alt="CleanFlight" />
+        </div>
+        <p class="modal-desc">
+          A concept developed for an engineering challenge — a self-coordinating fleet of AI-powered
+          drones that can autonomously clean large outdoor areas far faster than any human crew.
+        </p>
+        <ul class="modal-bullets">
+          <li>Fleet of drones with onboard AI and hive-mind coordination</li>
+          <li>Each drone equipped with a vacuum pickup system for debris collection</li>
+          <li>Central ground station for takeoff, landing, and trash deposit</li>
+          <li>Area divided into sectors — each drone assigned and responsible for its own sector</li>
+          <li>Battery sized to complete a full sector on a single charge</li>
+          <li>All drones equipped with computer vision and obstacle avoidance sensors</li>
+          <li>What would take human crews days takes this fleet minutes</li>
+        </ul>
+        <div class="modal-links">
+          <a href="https://drive.google.com/file/d/1xuiXIjSI7w0mfhunoVz3nRAJSmofXJTY/view" class="btn btn-primary" target="_blank" rel="noopener">Watch Submission Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h2 class="section-heading">Get in touch</h2>
+      <p>Interested in my work? Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="https://github.com/jaiveerbala" class="contact-link" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:jaiveerbala@gmail.com" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Jaiveer Bala. Built by hand.</p>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.proj-card').forEach(card => {
+          card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+        });
+      });
+    });
+
+    // Open modals on card click
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.id;
+        const overlay = document.getElementById('modal-' + id);
+        if (overlay) {
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close modals
+    function closeModal(overlay) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) closeModal(overlay);
+      });
+      overlay.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => closeModal(overlay));
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
+      }
+    });
+
+    // Deep link: open modal if hash matches a project ID
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const overlay = document.getElementById('modal-' + hash);
+      if (overlay) {
+        setTimeout(() => { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }, 300);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaiveer Bala — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">JB</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Mechanical Lead · Builder · Developer</div>
+      <h1 class="hero-name">
+        <span class="hero-first">Jaiveer</span>
+        <span class="hero-last">Bala</span>
+      </h1>
+      <p class="hero-sub">
+        I design, build, and program things — from world-record competition robots and custom drones
+        to embedded hardware and productivity software. Bay Area.
+      </p>
+      <div class="hero-actions">
+        <a href="projects.html" class="btn btn-primary">View Projects</a>
+        <a href="assets/resume.pdf" class="btn btn-ghost" download>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v7M4 6l3 3 3-3M1 11h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download Résumé
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="section-label">About</div>
+          <h2 class="section-heading">A bit about me</h2>
+          <p>
+            I'm a high school student with a deep interest in engineering across the full stack —
+            mechanical, electrical, and software. Whether I'm machining parts in CAD, soldering together
+            a custom embedded system, or writing a web app that actually fits the way I work, I care
+            about doing it well.
+          </p>
+          <p>
+            I serve as the Mechanical Lead on my FTC robotics team, where I oversee the design,
+            prototyping, and manufacturing of competition robots. This past season we set the solo
+            world record, the global match world record, and the autonomous world record at the NorCal
+            regional championship.
+          </p>
+          <p>
+            I hold a CSWA certification in SolidWorks. Outside of robotics, I build personal projects
+            that solve real problems — or just scratch a creative itch.
+          </p>
+        </div>
+        <div class="about-right">
+          <div class="cert-card">
+            <div class="cert-icon">
+              <img src="assets/cswa-badge.png" alt="CSWA Badge" style="width:48px;height:48px;object-fit:contain;" />
+            </div>
+            <div class="cert-info">
+              <div class="cert-name">CSWA — Certified SolidWorks Associate</div>
+              <div class="cert-issuer">Mechanical Design</div>
+              <div class="cert-year">Dassault Systèmes</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;margin-left:auto;flex-shrink:0;">
+              <a href="assets/cswa-cert.pdf" class="cert-download" download title="Download Certificate PDF">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M7.5 2v7M5 7l2.5 2.5L10 7M2 12h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href="assets/resume.pdf" class="cert-download" download title="Download Résumé">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <rect x="3" y="1" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="M5 5h5M5 7.5h5M5 10h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-pill">SolidWorks CAD</div>
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">JavaScript</div>
+            <div class="skill-pill">Arduino / Embedded</div>
+            <div class="skill-pill">3D Printing</div>
+            <div class="skill-pill">Soldering</div>
+            <div class="skill-pill">FTC Robotics</div>
+            <div class="skill-pill">Raspberry Pi</div>
+            <div class="skill-pill">Betaflight</div>
+            <div class="skill-pill">Linux / Bash</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="section featured" id="featured">
+    <div class="container">
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-heading">Featured Projects</h2>
+
+      <div class="featured-grid">
+
+        <a href="projects.html#decode-robot" class="feat-card feat-card--wide">
+          <div class="feat-card-img">
+            <img src="https://drive.google.com/thumbnail?id=19JJae178axCHyY_Gw1fYwT80FhdZ96IB&sz=w1200" alt="FTC Decode Robot" onerror="this.parentElement.classList.add('img-missing')"/>
+            <div class="feat-img-placeholder"><span>FTC Decode Robot</span></div>
+          </div>
+          <div class="feat-card-body">
+            <div class="feat-tag">Robotics · 2025–26</div>
+            <div class="feat-title">FTC Decode Robot</div>
+            <div class="feat-desc">World record–setting competition robot. Led mechanical design end-to-end as Mechanical Lead — personally designed the drivetrain and turreted ball shooter mechanism.</div>
+            <div class="feat-arrow">View project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </a>
+
+        <a href="projects.html#swerve-db" class="feat-card">
+          <div class="feat-card-img">
+            <img src="https://drive.google.com/thumbnail?id=1WHtm_fNP6pyyyeiWpvD4lPmt6DQnk0Id&sz=w800" alt="Differential Swerve Drivebase" onerror="this.parentElement.classList.add('img-missing')"/>
+            <div class="feat-img-placeholder"><span>Differential Swerve</span></div>
+          </div>
+          <div class="feat-card-body">
+            <div class="feat-tag">Mechanical · 2025</div>
+            <div class="feat-title">Differential Swerve Drivebase</div>
+            <div class="feat-desc">Solo-designed drivetrain using differential gearing for simultaneous, independent wheel and pod rotation.</div>
+            <div class="feat-arrow">View project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </a>
+
+        <a href="projects.html#door-lock" class="feat-card">
+          <div class="feat-card-img">
+            <img src="https://drive.google.com/thumbnail?id=1Dl6GD9PxnoNj1CXvueQ_nMT-93oQ_ACa&sz=w800" alt="Smart Door Lock" onerror="this.parentElement.classList.add('img-missing')"/>
+            <div class="feat-img-placeholder"><span>Smart Door Lock</span></div>
+          </div>
+          <div class="feat-card-body">
+            <div class="feat-tag">Embedded · 2022–Present</div>
+            <div class="feat-title">Smart Door Lock</div>
+            <div class="feat-desc">RFID + NFC deadbolt system with custom-machined enclosure, auto-lock, and phone unlock.</div>
+            <div class="feat-arrow">View project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </a>
+
+        <a href="projects.html#jvplanner" class="feat-card">
+          <div class="feat-card-img">
+            <img src="https://drive.google.com/thumbnail?id=16Fn7U-yWy09H_x3px5wllQrIXVaK59nP&sz=w800" alt="JVPlanner" onerror="this.parentElement.classList.add('img-missing')"/>
+            <div class="feat-img-placeholder"><span>JVPlanner</span></div>
+          </div>
+          <div class="feat-card-body">
+            <div class="feat-tag">Software · 2026</div>
+            <div class="feat-title">JVPlanner — Custom Calendar App</div>
+            <div class="feat-desc">Personal productivity app with Canvas auto-import, multi-calendar, daily summary, and cross-device PWA support.</div>
+            <div class="feat-arrow">View project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </a>
+
+        <a href="projects.html#levitator" class="feat-card">
+          <div class="feat-card-img">
+            <img src="https://drive.google.com/thumbnail?id=1KSUTiZS916jiQrt7oe8TT7xcsMbn9wBD&sz=w800" alt="Acoustic Levitator" onerror="this.parentElement.classList.add('img-missing')"/>
+            <div class="feat-img-placeholder"><span>Acoustic Levitator</span></div>
+          </div>
+          <div class="feat-card-body">
+            <div class="feat-tag">Electrical · 2023</div>
+            <div class="feat-title">Acoustic Levitator</div>
+            <div class="feat-desc">Opposing ultrasonic transducers create standing waves that suspend small objects in midair.</div>
+            <div class="feat-arrow">View project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="featured-cta">
+        <a href="projects.html" class="btn btn-ghost">See all projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h2 class="section-heading">Get in touch</h2>
+      <p>Interested in my work? Feel free to reach out.</p>
+      <div class="contact-links">
+        <a href="https://github.com/jaiveerbala" class="contact-link" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:jaiveerbala@gmail.com" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Jaiveer Bala. Built by hand.</p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+</body>
+</html>
