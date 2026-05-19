@@ -10,10 +10,39 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Space Invaders embed */
+    .game-embed { width:100%; background:#000; border-radius:var(--radius); overflow:hidden; margin-bottom:28px; }
+    .game-embed canvas { display:block; margin:0 auto; }
+    .game-embed-label { text-align:center; padding:8px; font-size:.75rem; color:#555; background:#111; }
+    /* Tic Tac Toe embed */
+    .ttt-wrap { margin-bottom:28px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+    .ttt-board { display:grid; grid-template-columns:repeat(3,1fr); gap:0; max-width:240px; margin:20px auto; }
+    .ttt-cell {
+      aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display); font-size:2rem; font-weight:300;
+      border:1px solid var(--border); cursor:pointer;
+      transition: background .15s;
+    }
+    .ttt-cell:hover:not(.taken) { background:var(--accent-lt); }
+    .ttt-cell.taken { cursor:default; }
+    .ttt-cell.x { color:var(--ink); }
+    .ttt-cell.o { color:var(--accent); }
+    .ttt-status { text-align:center; padding:10px 20px 4px; font-size:.85rem; color:var(--ink-muted); min-height:36px; }
+    .ttt-controls { display:flex; justify-content:center; gap:10px; padding:12px 20px 20px; }
+    .ttt-btn {
+      padding:8px 20px; border-radius:6px; font-family:var(--font-body);
+      font-size:.82rem; cursor:pointer; transition:all .18s;
+    }
+    .ttt-btn-primary { background:var(--ink); color:var(--bg); border:1px solid var(--ink); }
+    .ttt-btn-primary:hover { background:#333; }
+    .ttt-btn-ghost { background:transparent; color:var(--ink); border:1px solid var(--border-dk); }
+    .ttt-btn-ghost:hover { border-color:var(--ink); }
+    .ttt-winning .ttt-cell.winning-cell { background:var(--accent-lt); color:var(--accent) !important; }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">JB</a>
@@ -25,14 +54,12 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="projects-hero">
     <div class="section-label">Work</div>
     <h1>All Projects</h1>
     <p>A collection of physical builds, robotics work, embedded systems, and software.</p>
   </div>
 
-  <!-- FILTER BAR -->
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="robotics">Robotics</button>
@@ -42,80 +69,54 @@
     <button class="filter-btn" data-filter="concept">Concept</button>
   </div>
 
-  <!-- PROJECTS GRID -->
   <div class="projects-grid-wrap">
     <div class="projects-grid" id="projectsGrid">
-
-      <!-- ── ROBOTICS ──────────────────────────────────── -->
 
       <!-- FTC Decode Robot -->
       <div class="proj-card" data-category="robotics" data-id="decode-robot" id="decode-robot">
         <div class="proj-card-media">
-          <img src="https://drive.google.com/thumbnail?id=19JJae178axCHyY_Gw1fYwT80FhdZ96IB&sz=w800" alt="FTC Decode Robot" onerror="this.parentElement.classList.add('img-missing')"/>
+          <img src="https://drive.google.com/thumbnail?id=1AyFoTld8zfvjS0-PNyHl2wPtb_PL5h5d&sz=w800" alt="FTC Decode Robot" onerror="this.parentElement.classList.add('img-missing')"/>
           <div class="proj-media-placeholder">FTC Decode Robot</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Robotics</span>
-            <span class="proj-year">2025–26</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Robotics</span><span class="proj-year">2025–26</span></div>
           <div class="proj-card-title">FTC Decode Robot</div>
-          <div class="proj-card-desc">World record–setting FTC competition robot. As Mechanical Lead, oversaw design and production of every mechanism while personally building the drivetrain and turreted shooter.</div>
+          <div class="proj-card-desc">World record–setting FTC competition robot. Oversaw design and production of every mechanism while personally building the drivetrain and turreted shooter.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            GitHub (coming soon)
-          </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
-      <!-- FTC Into the Deep Robot -->
+      <!-- FTC Into the Deep -->
       <div class="proj-card" data-category="robotics" data-id="itd-robot" id="itd-robot">
         <div class="proj-card-media">
           <img src="https://drive.google.com/thumbnail?id=1TplwcIBwEXGC_N5MCZcC9jK7DPHLuyl3&sz=w800" alt="FTC Into the Deep Robot" onerror="this.parentElement.classList.add('img-missing')"/>
           <div class="proj-media-placeholder">FTC Into the Deep Robot</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Robotics</span>
-            <span class="proj-year">2024–25</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Robotics</span><span class="proj-year">2024–25</span></div>
           <div class="proj-card-title">FTC Into the Deep Robot</div>
-          <div class="proj-card-desc">Led the full mechanical design of this competition robot. Personally designed and built the drivetrain, horizontal intake slides, and miniturret intaking arm from scratch.</div>
+          <div class="proj-card-desc">Led full mechanical design as first season Mechanical Lead. Personally designed the drivetrain, horizontal intake slides, and miniturret intaking arm.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            GitHub (coming soon)
-          </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
-      <!-- ── MECHANICAL ─────────────────────────────────── -->
-
-      <!-- Differential Swerve Drivebase -->
+      <!-- Differential Swerve Drivetrain -->
       <div class="proj-card" data-category="mechanical" data-id="swerve-db" id="swerve-db">
         <div class="proj-card-media">
           <img src="https://drive.google.com/thumbnail?id=1WHtm_fNP6pyyyeiWpvD4lPmt6DQnk0Id&sz=w800" alt="Differential Swerve" onerror="this.parentElement.classList.add('img-missing')"/>
           <div class="proj-media-placeholder">Differential Swerve</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Mechanical</span>
-            <span class="proj-year">2025</span>
-          </div>
-          <div class="proj-card-title">Differential Swerve Drivebase</div>
-          <div class="proj-card-desc">A personal project designed entirely solo — applies differential gearing principles to achieve any combination of wheel rotation and pod steering simultaneously with just two motors per pod.</div>
+          <div class="proj-meta"><span class="proj-type">Mechanical</span><span class="proj-year">2025</span></div>
+          <div class="proj-card-title">Differential Swerve Drivetrain</div>
+          <div class="proj-card-desc">Solo personal project applying differential gearing to a drivetrain for independent simultaneous wheel rotation and pod steering.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            GitHub (coming soon)
-          </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
@@ -126,105 +127,77 @@
           <div class="proj-media-placeholder">2-Speed Transmission</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Mechanical</span>
-            <span class="proj-year">2025</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Mechanical</span><span class="proj-year">2025</span></div>
           <div class="proj-card-title">2-Speed Transmission</div>
-          <div class="proj-card-desc">Servo-actuated spring-loaded transmission that shifts between 1:1 and 5:3 gear ratios in under a second. Designed in SolidWorks for FTC endgame tasks requiring extra torque.</div>
-        </div>
-        <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            GitHub (coming soon)
-          </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-      </div>
-
-      <!-- Differential Wrist -->
-      <div class="proj-card" data-category="mechanical" data-id="diff-wrist" id="diff-wrist">
-        <div class="proj-card-media">
-          <img src="https://drive.google.com/thumbnail?id=1T4uwEKzM8AsRLxy0V6C-Z5gHWMmxVXkS&sz=w800" alt="Differential Wrist" onerror="this.parentElement.classList.add('img-missing')"/>
-          <div class="proj-media-placeholder">Differential Wrist</div>
-        </div>
-        <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Mechanical</span>
-            <span class="proj-year">2025</span>
-          </div>
-          <div class="proj-card-title">Differential Wrist (ITD Claw)</div>
-          <div class="proj-card-desc">A two-degree-of-freedom wrist mechanism using differential gearing to achieve simultaneous orbit and rotation of a claw. Designed in SolidWorks for specimen pickup and scoring.</div>
-        </div>
-        <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            GitHub (coming soon)
-          </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-      </div>
-
-      <!-- Second Drone -->
-      <div class="proj-card" data-category="mechanical" data-id="second-drone" id="second-drone">
-        <div class="proj-card-media">
-          <img src="https://drive.google.com/thumbnail?id=1XrqQLYmFmdO3kwKCpUzvusFZ-NmRhNnU&sz=w800" alt="Second Drone" onerror="this.parentElement.classList.add('img-missing')"/>
-          <div class="proj-media-placeholder">Second Drone</div>
-        </div>
-        <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Mechanical</span>
-            <span class="proj-year">2024</span>
-          </div>
-          <div class="proj-card-title">FPV Drone (v2)</div>
-          <div class="proj-card-desc">Improved on the first build with an integrated FPV camera, 3D-printed custom mounts, higher-quality components, and Betaflight configuration to get mismatched parts working together.</div>
-        </div>
-        <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            GitHub (coming soon)
-          </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-      </div>
-
-      <!-- First Drone -->
-      <div class="proj-card" data-category="mechanical" data-id="first-drone" id="first-drone">
-        <div class="proj-card-media">
-          <img src="https://drive.google.com/thumbnail?id=1W0aF_IL6ML95fFxSNRyZKJ6zbF6psJZE&sz=w800" alt="First Drone" onerror="this.parentElement.classList.add('img-missing')"/>
-          <div class="proj-media-placeholder">First Drone</div>
-        </div>
-        <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Mechanical</span>
-            <span class="proj-year">2023 · 6th Grade</span>
-          </div>
-          <div class="proj-card-title">First Drone Build</div>
-          <div class="proj-card-desc">Built from scratch in 6th grade using a kit frame and sourced components. Required custom soldering and Betaflight software work to get mismatched parts flying together. Line-of-sight.</div>
+          <div class="proj-card-desc">Servo-actuated spring-loaded gearbox switching between 1:1 and 5:3 ratios in under a second. Designed for FTC endgame applications.</div>
         </div>
         <div class="proj-card-footer">
           <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
-      <!-- ── EMBEDDED / ELECTRICAL ───────────────────────── -->
+      <!-- Differential Wrist -->
+      <div class="proj-card" data-category="mechanical" data-id="diff-wrist" id="diff-wrist">
+        <div class="proj-card-media proj-card-media--video">
+          <div class="proj-media-placeholder" style="display:flex;align-items:center;justify-content:center;background:#111;min-height:180px;">
+            <span style="color:#fff;opacity:.6;font-size:2rem;">▶</span>
+          </div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta"><span class="proj-type">Mechanical</span><span class="proj-year">2025</span></div>
+          <div class="proj-card-title">Differential Wrist</div>
+          <div class="proj-card-desc">Two-DOF wrist using differential gearing for simultaneous orbit and claw rotation. Designed for specimen pickup and scoring in FTC.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- FPV Drone v2 -->
+      <div class="proj-card" data-category="mechanical" data-id="second-drone" id="second-drone">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=1sMvg3nZdh8bNlksoDx4mmjsmnyJGtM5n&sz=w800" alt="FPV Drone v2" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">FPV Drone v2</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta"><span class="proj-type">Mechanical</span><span class="proj-year">2024</span></div>
+          <div class="proj-card-title">FPV Drone (v2)</div>
+          <div class="proj-card-desc">Improved build with integrated FPV camera, 3D-printed mounts, higher-quality components, and Betaflight configuration.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <!-- First Drone -->
+      <div class="proj-card" data-category="mechanical" data-id="first-drone" id="first-drone">
+        <div class="proj-card-media">
+          <img src="https://drive.google.com/thumbnail?id=12QfxUUtxVRrtOSvOisbs9slL-qLQqBHj&sz=w800" alt="First Drone" onerror="this.parentElement.classList.add('img-missing')"/>
+          <div class="proj-media-placeholder">First Drone</div>
+        </div>
+        <div class="proj-card-body">
+          <div class="proj-meta"><span class="proj-type">Mechanical</span><span class="proj-year">2023 · 6th Grade</span></div>
+          <div class="proj-card-title">First Drone Build</div>
+          <div class="proj-card-desc">Built from scratch in 6th grade using a kit frame and individually sourced components. Required custom soldering and software to integrate mismatched parts.</div>
+        </div>
+        <div class="proj-card-footer">
+          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
 
       <!-- Door Lock -->
       <div class="proj-card" data-category="embedded" data-id="door-lock" id="door-lock">
         <div class="proj-card-media">
-          <img src="https://drive.google.com/thumbnail?id=1Dl6GD9PxnoNj1CXvueQ_nMT-93oQ_ACa&sz=w800" alt="Smart Door Lock" onerror="this.parentElement.classList.add('img-missing')"/>
+          <img src="https://drive.google.com/thumbnail?id=1JOLntWy8lSpcfxRM3BiSvW_xPwKTyOU7&sz=w800" alt="Smart Door Lock" onerror="this.parentElement.classList.add('img-missing')"/>
           <div class="proj-media-placeholder">Smart Door Lock</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Embedded</span>
-            <span class="proj-year">2022–Present</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Embedded</span><span class="proj-year">2022–Present</span></div>
           <div class="proj-card-title">Smart Door Lock (v1 & v2)</div>
-          <div class="proj-card-desc">RFID and NFC-based deadbolt lock. The current version uses an Arduino Nano, RC522 module, custom compact enclosure with countersunk screws, integrated LiPo charging, and auto-locks after 1 minute.</div>
+          <div class="proj-card-desc">RFID and NFC-based deadbolt. Custom compact enclosure, integrated LiPo charging, phone unlock, and auto-lock after 1 minute.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+          <a href="https://github.com/jaiveerbala" class="proj-gh-link" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub (coming soon)
           </a>
@@ -235,19 +208,20 @@
       <!-- Acoustic Levitator -->
       <div class="proj-card" data-category="embedded" data-id="levitator" id="levitator">
         <div class="proj-card-media">
-          <img src="https://drive.google.com/thumbnail?id=1KSUTiZS916jiQrt7oe8TT7xcsMbn9wBD&sz=w800" alt="Acoustic Levitator" onerror="this.parentElement.classList.add('img-missing')"/>
+          <img src="https://drive.google.com/thumbnail?id=1xUVhcJFcPCD6CLHFj73zRYqn3DSheiof&sz=w800" alt="Acoustic Levitator" onerror="this.parentElement.classList.add('img-missing')"/>
           <div class="proj-media-placeholder">Acoustic Levitator</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Embedded</span>
-            <span class="proj-year">2023 · 7th Grade</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Embedded</span><span class="proj-year">2023 · 7th Grade</span></div>
           <div class="proj-card-title">Acoustic Levitator</div>
-          <div class="proj-card-desc">Desoldered transmitters from SR04 ultrasonic sensors and amplified them with a motor controller to create standing waves between opposing transducers. Small foam balls float in midair.</div>
+          <div class="proj-card-desc">Desoldered ultrasonic transmitters, amplified with a motor controller, and aligned them to create standing waves that suspend foam balls.</div>
         </div>
         <div class="proj-card-footer">
-          <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <a href="https://github.com/jaiveerbala" class="proj-gh-link" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub (coming soon)
+          </a>
+          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
@@ -258,19 +232,14 @@
           <div class="proj-media-placeholder">Pi Server</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Embedded</span>
-            <span class="proj-year">2025 · 8th Grade</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Embedded</span><span class="proj-year">2025 · 8th Grade</span></div>
           <div class="proj-card-title">Raspberry Pi CAD File Server</div>
-          <div class="proj-card-desc">Self-hosted Raspberry Pi 3B+ server running Resilio Sync to keep FTC team CAD files in sync across all devices. Built to solve a gap before SolidWorks offered free student PDM.</div>
+          <div class="proj-card-desc">Self-hosted Pi 3B+ server running Resilio Sync to keep FTC team CAD files in sync across all devices.</div>
         </div>
         <div class="proj-card-footer">
           <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
-
-      <!-- ── SOFTWARE ────────────────────────────────────── -->
 
       <!-- JVPlanner -->
       <div class="proj-card" data-category="software" data-id="jvplanner" id="jvplanner">
@@ -279,15 +248,12 @@
           <div class="proj-media-placeholder">JVPlanner</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Software</span>
-            <span class="proj-year">2026 · 9th Grade</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Software</span><span class="proj-year">2026 · 9th Grade</span></div>
           <div class="proj-card-title">JVPlanner — Custom Calendar App</div>
-          <div class="proj-card-desc">Built a personal productivity app after no existing tool worked the way I needed. Three calendars (general, school, college), integrated to-do lists, daily summary, Canvas auto-import every hour, phone notifications, and Google OAuth.</div>
+          <div class="proj-card-desc">Personal productivity app with Canvas auto-import, three calendars, integrated to-do lists, daily summary, and cross-device PWA support.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+          <a href="https://github.com/jaiveerbala" class="proj-gh-link" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub (coming soon)
           </a>
@@ -297,77 +263,70 @@
 
       <!-- Space Invaders -->
       <div class="proj-card" data-category="software" data-id="space-invaders" id="space-invaders">
-        <div class="proj-card-media">
-          <div class="proj-card-media" style="background:#1a1814; display:flex; align-items:center; justify-content:center;">
-            <span style="color:#f0e8e0; font-family:'Fraunces',serif; font-size:1.4rem; letter-spacing:.05em;">SPACE INVADERS</span>
-          </div>
+        <div class="proj-card-media" style="background:#000;display:flex;align-items:center;justify-content:center;min-height:180px;cursor:pointer;" onclick="openModal('space-invaders')">
+          <video autoplay muted loop playsinline style="width:100%;height:180px;object-fit:cover;" onerror="this.style.display='none'">
+            <source src="https://drive.google.com/uc?export=download&id=1Zq-HJIEstg_ejc5UnJ-VvWT4K0d_ay1j" type="video/mp4">
+          </video>
+          <div class="proj-media-placeholder" style="display:none;">Space Invaders</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Software</span>
-            <span class="proj-year">2024 · 7th Grade</span>
-          </div>
-          <div class="proj-card-title">Space Invaders Recreation</div>
-          <div class="proj-card-desc">Close recreation of the original Space Invaders game for an intro CS final project. Named the most complex and most interesting submission by the instructor.</div>
+          <div class="proj-meta"><span class="proj-type">Software</span><span class="proj-year">2024 · 7th Grade</span></div>
+          <div class="proj-card-title">Space Invaders</div>
+          <div class="proj-card-desc">Close recreation of the original arcade game, built as a 7th grade CS final project. Named most complex and most interesting submission by the instructor.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+          <a href="https://github.com/jaiveerbala" class="proj-gh-link" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub (coming soon)
           </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="proj-view-btn">Play / Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
       <!-- Tic Tac Toe -->
       <div class="proj-card" data-category="software" data-id="tictactoe" id="tictactoe">
-        <div class="proj-card-media" style="background:#f0e8e0; display:flex; align-items:center; justify-content:center; min-height:180px;">
-          <span style="font-family:'Fraunces',serif; font-size:3rem; color:#c8602a; opacity:.6;">✕ ○ ✕</span>
+        <div class="proj-card-media" style="background:#f0e8e0;display:flex;align-items:center;justify-content:center;min-height:180px;cursor:pointer;" onclick="openModal('tictactoe')">
+          <video autoplay muted loop playsinline style="width:100%;height:180px;object-fit:cover;" onerror="this.style.display='none'">
+            <source src="https://drive.google.com/uc?export=download&id=1cqVhjxkxxiwuOL6DIUw6k6IwBbs50BU4" type="video/mp4">
+          </video>
+          <div class="proj-media-placeholder" style="display:none;font-size:2.5rem;color:var(--accent);font-family:var(--font-display);">✕ ○ ✕</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Software</span>
-            <span class="proj-year">2023 · 7th Grade</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Software</span><span class="proj-year">2023 · 7th Grade</span></div>
           <div class="proj-card-title">Unbeatable Tic-Tac-Toe</div>
-          <div class="proj-card-desc">Python console Tic-Tac-Toe against the computer. No AI — just hardcoded cases, multi-step simulated lookaheads, and fork detection. Essentially unbeatable; most games end in a draw.</div>
+          <div class="proj-card-desc">Python console game against the computer. No AI — hardcoded logic, fork detection, and multi-step lookaheads. Essentially unbeatable; most games end in a draw.</div>
         </div>
         <div class="proj-card-footer">
-          <a href="#" class="proj-gh-link" onclick="return false;" title="GitHub coming soon">
+          <a href="https://github.com/jaiveerbala" class="proj-gh-link" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub (coming soon)
           </a>
-          <span class="proj-view-btn">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="proj-view-btn">Play / Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
-
-      <!-- ── CONCEPT ──────────────────────────────────────── -->
 
       <!-- CleanFlight -->
       <div class="proj-card" data-category="concept" data-id="cleanflight" id="cleanflight">
         <div class="proj-card-media">
           <img src="https://drive.google.com/thumbnail?id=1Eu86bBUE3u3CfOdCnojr8bUt-mbOFF2V&sz=w800" alt="CleanFlight" onerror="this.parentElement.classList.add('img-missing')"/>
-          <div class="proj-media-placeholder">CleanFlight Concept</div>
+          <div class="proj-media-placeholder">CleanFlight</div>
         </div>
         <div class="proj-card-body">
-          <div class="proj-meta">
-            <span class="proj-type">Concept</span>
-            <span class="proj-year">2025</span>
-          </div>
+          <div class="proj-meta"><span class="proj-type">Concept</span><span class="proj-year">2025</span></div>
           <div class="proj-card-title">CleanFlight — AI Drone Cleaning Fleet</div>
-          <div class="proj-card-desc">Engineering challenge concept: a self-coordinating fleet of AI drones with vacuum pickups that autonomously map and clean outdoor areas in a fraction of the time of a human crew.</div>
+          <div class="proj-card-desc">Engineering challenge concept: a self-coordinating fleet of AI drones that autonomously clean outdoor areas in minutes.</div>
         </div>
         <div class="proj-card-footer">
           <span class="proj-view-btn" style="margin-left:0;">Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </div>
 
-    </div><!-- /projects-grid -->
-  </div><!-- /projects-grid-wrap -->
+    </div>
+  </div>
 
-  <!-- ── MODALS ──────────────────────────────────────────────────── -->
+  <!-- ═══════════════════════════════════════════════ MODALS ══ -->
 
-  <!-- Decode Robot Modal -->
+  <!-- Decode Robot -->
   <div class="modal-overlay" id="modal-decode-robot">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -375,37 +334,31 @@
         <div class="modal-tag">Robotics · 2025–26</div>
         <div class="modal-title">FTC Decode Robot</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=19JJae178axCHyY_Gw1fYwT80FhdZ96IB&sz=w1200" alt="Decode Robot" />
+          <img src="https://drive.google.com/thumbnail?id=1AyFoTld8zfvjS0-PNyHl2wPtb_PL5h5d&sz=w1200" alt="Robot Isom 1" class="lightbox-trigger" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=18D5RI5re7nUSd-GT_H636rMcIhenKQR0&sz=w600" alt="Drivebase"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1AyFoTld8zfvjS0-PNyHl2wPtb_PL5h5d&sz=w600" alt="Robot Isometric"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1DufAY6Ccn2jY04r3C7lc3VE1d1_rQogm&sz=w600" alt="Park Tech"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=18D5RI5re7nUSd-GT_H636rMcIhenKQR0&sz=w600" alt="Drivebase"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1DufAY6Ccn2jY04r3C7lc3VE1d1_rQogm&sz=w600" alt="Park Tech"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1S58NqoXfa-R4J9Aq7wdtIUNIOeklqHpZ/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">sorting_vid</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1q68z4rPzznA4e8vGmJM37wEm26Ce59Ce/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">21_ball_auton</div></div>
         </div>
-        <p class="modal-desc">
-          The FTC Decode robot is the culmination of the 2025–26 season. As Mechanical Lead, I oversaw
-          the design, production, and assembly of every subsystem on the robot while personally
-          engineering the drivetrain and turreted shooter mechanism — a ball launcher mounted on an
-          independent turret that can rotate without the robot itself turning, giving us a significant
-          scoring advantage.
-        </p>
+        <p class="modal-desc">My FTC team's robot for the 2025-26 season features some of the most advanced mechanical concepts my team has ever implemented. As Mechanical Lead, I oversaw the design, production, and assembly of every subsystem while personally engineering the drivetrain and turreted shooter — a ball launcher mounted on an independent turret that rotates without the robot itself turning.</p>
         <ul class="modal-bullets">
           <li>Set the solo world record and global match world record in November 2025</li>
           <li>Set the autonomous world record at the NorCal Regional Championship</li>
-          <li>Personally designed and built the full drivetrain and turreted shooter mechanism</li>
-          <li>Led design, production, and assembly oversight of all other mechanisms as Mechanical Lead</li>
-          <li>Developed early versions of the ball transfer mechanism</li>
-          <li>MTI submission video: <a href="https://www.youtube.com/watch?v=zmQtI1yW2aY" target="_blank" style="color:var(--accent);">youtube.com/watch?v=zmQtI1yW2aY</a></li>
+          <li>Personally designed the full drivetrain — uses an external reduction from 6000 to 460 RPM at the wheel via a dual-stage reduction system designed to save weight (lighter than the steel gearbox that ships with the motor)</li>
+          <li>Personally designed the turreted shooter mechanism for independent rotation from the robot</li>
+          <li>Personally designed the parking mechanism</li>
+          <li>Led design, production, and assembly of all other mechanisms as Mechanical Lead</li>
         </ul>
         <div class="modal-links">
           <a href="https://www.youtube.com/watch?v=zmQtI1yW2aY" class="btn btn-primary" target="_blank" rel="noopener">Watch MTI Video</a>
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ITD Robot Modal -->
+  <!-- ITD Robot -->
   <div class="modal-overlay" id="modal-itd-robot">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -413,17 +366,18 @@
         <div class="modal-tag">Robotics · 2024–25</div>
         <div class="modal-title">FTC Into the Deep Robot</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1TplwcIBwEXGC_N5MCZcC9jK7DPHLuyl3&sz=w1200" alt="ITD Robot" />
+          <img src="https://drive.google.com/thumbnail?id=1TplwcIBwEXGC_N5MCZcC9jK7DPHLuyl3&sz=w1200" alt="ITD Robot" class="lightbox-trigger" style="object-position:center 20%;" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1hTBkF0zsWsEAgIsHL8RWv7fnFJXJGHku&sz=w600" alt="Exploded View"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1stqJpviB1ZCYIpS3N1s01c5XMRWJ5Dwo&sz=w600" alt="Slides Out"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1sJtoQds4u09N0yfe5fhdGm-clAemijms&sz=w600" alt="Intake"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1hTBkF0zsWsEAgIsHL8RWv7fnFJXJGHku&sz=w600" alt="Exploded View"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1stqJpviB1ZCYIpS3N1s01c5XMRWJ5Dwo&sz=w600" alt="Slides Out"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1sJtoQds4u09N0yfe5fhdGm-clAemijms&sz=w600" alt="Intake"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=19JJae178axCHyY_Gw1fYwT80FhdZ96IB&sz=w600" alt="Render ISO"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1T4uwEKzM8AsRLxy0V6C-Z5gHWMmxVXkS&sz=w600" alt="Intake Isom 2"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1tkXMYxCfaR8UcsdSFGLJg4D6v529H6dr/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">6_sample</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1rT4E-GwiIILQVOsQAbjHJ7lamnNCBEE3/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">5_spec</div></div>
         </div>
-        <p class="modal-desc">
-          My first season as Mechanical Lead. I led the design of the entire robot, managed team members
-          working on individual mechanisms, and personally designed and built three key systems from scratch.
-        </p>
+        <p class="modal-desc">My first season as Mechanical Lead. I led the design of the entire robot, managed team members working on individual mechanisms, and personally designed and built three key systems from scratch.</p>
         <ul class="modal-bullets">
           <li>Designed and built the full drivetrain independently</li>
           <li>Designed and built the horizontal intake slide system</li>
@@ -431,49 +385,40 @@
           <li>Prototyped every mechanism and iterated throughout the season to maximize scoring</li>
           <li>Managed and advised team members on all other mechanisms as Mechanical Lead</li>
         </ul>
-        <div class="modal-links">
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- Swerve DB Modal -->
+  <!-- Swerve Drivetrain -->
   <div class="modal-overlay" id="modal-swerve-db">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
       <div class="modal-inner">
         <div class="modal-tag">Mechanical · 2025</div>
-        <div class="modal-title">Differential Swerve Drivebase</div>
+        <div class="modal-title">Differential Swerve Drivetrain</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1WHtm_fNP6pyyyeiWpvD4lPmt6DQnk0Id&sz=w1200" alt="Swerve Drivebase" />
+          <img src="https://drive.google.com/thumbnail?id=1WHtm_fNP6pyyyeiWpvD4lPmt6DQnk0Id&sz=w1200" alt="Swerve v2" class="lightbox-trigger" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1vLeLC4NvE_T6yFJIhHQPNCuACb38k21J&sz=w600" alt="Real photo"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=19LxDRlB2Hin3QuzbdX4i3n3H9_r-MWZy&sz=w600" alt="CAD Revamped"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1IbIsbCJNneE1z4CSOq51JozrE1fgTX-W&sz=w600" alt="v1 vs v2"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1vLeLC4NvE_T6yFJIhHQPNCuACb38k21J&sz=w600" alt="Real photo"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=19LxDRlB2Hin3QuzbdX4i3n3H9_r-MWZy&sz=w600" alt="CAD Revamped"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1IbIsbCJNneE1z4CSOq51JozrE1fgTX-W&sz=w600" alt="v1 vs v2"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1vixLSGYcelNaBrLR706bnqfz5EK3Qo48/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">roll test</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1dKRwLVbBC5uU0HPI9gWumiWAXG44Xfop/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">pod test</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1jwrYdGtc3xtuo_IKycdbB9lnsxRnRZIW/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">swerve test</div></div>
         </div>
-        <p class="modal-desc">
-          A personal project done entirely solo. Differential gearing is a common principle in robotics
-          — I applied it to a drivetrain where two motors per pod, acting through a differential, can
-          independently control both wheel rotation speed and pod steering angle simultaneously, giving
-          infinite combinations of motion with just two motors per side.
-        </p>
+        <p class="modal-desc">Differential gearing is a common principle in robotics. I applied it to a drivetrain where two motors per pod, acting through a differential, can independently control both wheel rotation speed and pod steering angle simultaneously, giving infinite combinations of motion with just two motors per pod for four total. This is the second iteration of the project, featuring better motor placement, more compact pods, and overall faster driving.</p>
         <ul class="modal-bullets">
-          <li>Designed entirely in SolidWorks CAD from scratch</li>
+          <li>Designed entirely in SolidWorks CAD from scratch — solo personal project</li>
           <li>Manufactured, assembled, and tested the full physical prototype</li>
-          <li>Used differential gearing: two motors per pod for independent wheel + steering control</li>
-          <li>Two pods total — four motors drive the entire robot with omnidirectional capability</li>
-          <li>3D-printed prototype validated the concept; metal manufacturing cost prevented competition use</li>
+          <li>Two pods, four motors total — omnidirectional capability</li>
+          <li>3D-printed prototype validated the concept; used for testing purposes</li>
         </ul>
-        <div class="modal-links">
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- Transmission Modal -->
+  <!-- Transmission -->
   <div class="modal-overlay" id="modal-transmission">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -481,42 +426,36 @@
         <div class="modal-tag">Mechanical · 2025</div>
         <div class="modal-title">2-Speed Transmission</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1VtS_eZzhH45S_SjUJU_xGqxYNzUBldcD&sz=w1200" alt="2-Speed Transmission" />
+          <img src="https://drive.google.com/thumbnail?id=1VtS_eZzhH45S_SjUJU_xGqxYNzUBldcD&sz=w1200" alt="Transmission Iso" class="lightbox-trigger" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=16Hx00zeVomg7eKAsiKboNtL9NhQRn_bL&sz=w600" alt="Top View"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=16Hx00zeVomg7eKAsiKboNtL9NhQRn_bL&sz=w600" alt="Top View"/></div>
         </div>
-        <p class="modal-desc">
-          A servo-actuated 2-speed transmission designed in SolidWorks for FTC robotics. Switches between
-          1:1 and 5:3 gear ratios in under a second using a spring-loaded linear shift along a shaft.
-          Particularly useful for endgame tasks where a mechanism needs to be fast during normal play
-          but requires more torque at the end of the match.
-        </p>
+        <p class="modal-desc">A servo-actuated 2-speed transmission designed in SolidWorks for FTC robotics. Switches between 1:1 and 5:3 gear ratios in under a second using a spring-loaded linear shift along a shaft. Particularly useful for endgame tasks where a mechanism needs to be fast during normal play but requires more torque at the end of the match.</p>
         <ul class="modal-bullets">
           <li>Designed in SolidWorks CAD</li>
           <li>Switches between 1:1 and 5:3 torque ratio in under one second</li>
           <li>Spring-loaded linear shift actuated by a servo motor</li>
-          <li>Designed specifically for FTC endgame linear slide applications</li>
+          <li>Designed for FTC endgame linear slide applications requiring extra torque</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- Differential Wrist Modal -->
+  <!-- Differential Wrist -->
   <div class="modal-overlay" id="modal-diff-wrist">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
       <div class="modal-inner">
         <div class="modal-tag">Mechanical · 2025</div>
-        <div class="modal-title">Differential Wrist (ITD Claw)</div>
-        <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1T4uwEKzM8AsRLxy0V6C-Z5gHWMmxVXkS&sz=w1200" alt="Differential Wrist" />
+        <div class="modal-title">Differential Wrist</div>
+        <div class="modal-media" style="background:#111;border-radius:var(--radius);overflow:hidden;margin-bottom:28px;">
+          <iframe src="https://drive.google.com/file/d/1v7YARSO1hDCK1LPOdZFsta2apSf_r0lp/preview" width="100%" height="360" allow="autoplay" style="border:none;display:block;"></iframe>
         </div>
-        <p class="modal-desc">
-          A two-DOF wrist mechanism for the Into the Deep season robot. Uses a differential gearing
-          system so that both the orbit angle and the claw rotation can be controlled simultaneously
-          with cleaner wire routing and simpler kinematics than handling each DOF separately.
-        </p>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/15MZnKv5OWvxt2IAvKMTf9og1kaHVUdvH/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">sample transfer</div></div>
+        </div>
+        <p class="modal-desc">A two-DOF wrist mechanism for the Into the Deep season robot. Uses a differential gearing system so that both the orbit angle and the claw rotation can be controlled simultaneously with cleaner wire routing and simpler kinematics than handling each DOF separately.</p>
         <ul class="modal-bullets">
           <li>Designed in SolidWorks CAD</li>
           <li>Differential gearing achieves simultaneous orbit and rotation of the claw</li>
@@ -527,7 +466,7 @@
     </div>
   </div>
 
-  <!-- Second Drone Modal -->
+  <!-- FPV Drone v2 -->
   <div class="modal-overlay" id="modal-second-drone">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -535,31 +474,29 @@
         <div class="modal-tag">Mechanical · 2024 · 8th Grade</div>
         <div class="modal-title">FPV Drone (v2)</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1XrqQLYmFmdO3kwKCpUzvusFZ-NmRhNnU&sz=w1200" alt="Second Drone" />
+          <img src="https://drive.google.com/thumbnail?id=1sMvg3nZdh8bNlksoDx4mmjsmnyJGtM5n&sz=w1200" alt="Drone image1" class="lightbox-trigger" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1sMvg3nZdh8bNlksoDx4mmjsmnyJGtM5n&sz=w600" alt="Drone 1"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1ih0Dvuq5pLyLFRBmijz3g5n9MrdXcCQC&sz=w600" alt="Drone 2"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1tAT6Aw93KOuEn9aUi6IMb1wlKss5RwkG&sz=w600" alt="Drone 3"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1k1Mf7J2EmnrIQdA8rtG4Biaey9k8-Vjc&sz=w600" alt="Drone 4"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1ih0Dvuq5pLyLFRBmijz3g5n9MrdXcCQC&sz=w600" alt="image2"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1tAT6Aw93KOuEn9aUi6IMb1wlKss5RwkG&sz=w600" alt="image3"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1k1Mf7J2EmnrIQdA8rtG4Biaey9k8-Vjc&sz=w600" alt="image4"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1XrqQLYmFmdO3kwKCpUzvusFZ-NmRhNnU&sz=w600" alt="image0"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1IU0sUNWAu2EznJZeaWLsbdRb3cZVikEJ&sz=w600" alt="image"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1agPS2ctqHHOheOWG2ojPoCcnP0jUqDzq/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1088</div></div>
         </div>
-        <p class="modal-desc">
-          Applying lessons from the first build, this drone integrates a first-person view camera, 
-          higher quality components, and 3D-printed custom mounts for antennas and component adapters.
-          Configured using the open-source Betaflight software.
-        </p>
+        <p class="modal-desc">Applying lessons from the first build, this drone integrates a first-person view camera, higher quality components, and 3D-printed custom mounts for antennas and component adapters. Configured using the open-source Betaflight software.</p>
         <ul class="modal-bullets">
           <li>Integrated FPV camera — first drone with a real-time video feed</li>
           <li>3D-printed custom antenna mounts and component adapters</li>
           <li>Higher quality motors, ESC, and flight controller versus v1</li>
           <li>Custom wiring and soldering required to integrate mismatched components</li>
-          <li>Programmed and tuned using open-source Betaflight flight controller software</li>
+          <li>Programmed and tuned using open-source Betaflight software</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- First Drone Modal -->
+  <!-- First Drone -->
   <div class="modal-overlay" id="modal-first-drone">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -567,20 +504,18 @@
         <div class="modal-tag">Mechanical · 2023 · 6th Grade</div>
         <div class="modal-title">First Drone Build</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1W0aF_IL6ML95fFxSNRyZKJ6zbF6psJZE&sz=w1200" alt="First Drone" />
+          <img src="https://drive.google.com/thumbnail?id=12QfxUUtxVRrtOSvOisbs9slL-qLQqBHj&sz=w1200" alt="IMG_1686" class="lightbox-trigger" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1poXDKBKThuO-FPCHxx7ygP5-oETPKNFL&sz=w600" alt="Drone parts"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=12QfxUUtxVRrtOSvOisbs9slL-qLQqBHj&sz=w600" alt="Drone assembled"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1poXDKBKThuO-FPCHxx7ygP5-oETPKNFL&sz=w600" alt="IMG_1687"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1W0aF_IL6ML95fFxSNRyZKJ6zbF6psJZE&sz=w600" alt="IMG_1688"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1DJ3Q3WVqroSEto7OhXik_rvRM_tyEQWz/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_3865</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1lIqpfFufPHdyBrTpWRbPbdHQG2oo4j7K/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_3863</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1Db2N9Bl2bubZYlcXXTtW5_NarC6U1q5S/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_3862</div></div>
         </div>
-        <p class="modal-desc">
-          My first complete drone build, done in 6th grade. Used a kit frame from Amazon and sourced
-          motors, flight controller, ESC, and radio receiver from various vendors. Most parts weren't
-          designed to work together, requiring custom soldering and software configuration to get airborne.
-          Flown line-of-sight with a standard hobby RC transmitter.
-        </p>
+        <p class="modal-desc">My first complete drone build, done in 6th grade. Used a kit frame from Amazon and sourced motors, flight controller, ESC, and radio receiver from various vendors. Most parts weren't designed to work together, requiring custom soldering and software configuration. Flown line-of-sight with a standard hobby RC transmitter.</p>
         <ul class="modal-bullets">
-          <li>Built entirely from scratch in 6th grade — first drone project</li>
+          <li>Built entirely from scratch in 6th grade</li>
           <li>Amazon kit frame with individually sourced motors, ESC, flight controller, and receiver</li>
           <li>Custom soldering and software configuration to integrate incompatible components</li>
           <li>Flown line-of-sight — no FPV camera (fixed in v2)</li>
@@ -590,7 +525,7 @@
     </div>
   </div>
 
-  <!-- Door Lock Modal -->
+  <!-- Door Lock -->
   <div class="modal-overlay" id="modal-door-lock">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -598,35 +533,41 @@
         <div class="modal-tag">Embedded · 2022–Present</div>
         <div class="modal-title">Smart Door Lock (v1 & v2)</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1Dl6GD9PxnoNj1CXvueQ_nMT-93oQ_ACa&sz=w1200" alt="Door Lock" />
+          <img src="https://drive.google.com/thumbnail?id=1JOLntWy8lSpcfxRM3BiSvW_xPwKTyOU7&sz=w1200" alt="IMG_1754" class="lightbox-trigger" style="object-fit:contain;background:#f0ece6;" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1JOLntWy8lSpcfxRM3BiSvW_xPwKTyOU7&sz=w600" alt="Lock 2"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1AMEjCITCSMRL7T3LKP85D3uBwLnOTbQP&sz=w600" alt="Lock 3"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1rwcvjZPWoT49GqiQ69lz96jrylKH1NoH&sz=w600" alt="Lock internals"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1g7VJ3Ypef4HnN85uyDDSotN5iXXmbOB4&sz=w600" alt="Lock detail"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1Dl6GD9PxnoNj1CXvueQ_nMT-93oQ_ACa&sz=w600" alt="IMG_1755"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1AMEjCITCSMRL7T3LKP85D3uBwLnOTbQP&sz=w600" alt="IMG_1753"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1rwcvjZPWoT49GqiQ69lz96jrylKH1NoH&sz=w600" alt="IMG_1737"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1L_HuaOh699q2SEXn2ckIZJwW04zc8so8&sz=w600" alt="IMG_1715"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1g7VJ3Ypef4HnN85uyDDSotN5iXXmbOB4&sz=w600" alt="IMG_1698"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1xOd4fiteI7G_mYlaREZOxRpwn463Lwy5&sz=w600" alt="IMG_1718"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1PnJLGsapAdXQI3jSomoKYlJ9o20oEPqD&sz=w600" alt="IMG_1708"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1bFMP5z3aJVHLWC8GEpeXYG2va98T6LLn&sz=w600" alt="IMG_1716"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1e-NsRp1vLktbEMRwUBL4SLFvuNjsfp0p&sz=w600" alt="IMG_1717"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1SW2NtRl2K2mRVIj_PPFjMX45T51S3ED6/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1722</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1AwKsnVPaBkA7tFfQDUI7gjPLP_IM59NW/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1738</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1UdWdGdrLGLPricWxTSNjkrqUgDrqn0oi/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1744</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1XXAK9Fn3a1irn053gL6JNIhThGfh0S7F/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1747</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/159LGGutMKPVDp6loWVGKFQUc-sddYkjg/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1696</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/18F0TGF4VTVsGODShWe8jLV-DxCoahrbb/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1697</div></div>
         </div>
-        <p class="modal-desc">
-          An ongoing project evolving since 6th grade. The original version used an RFID sensor and servo
-          mounted in a drilled-out outlet fuse box. The current version is a fully redesigned system with
-          a custom compact enclosure, integrated power management, and phone unlock support.
-        </p>
+        <p class="modal-desc">An ongoing project evolving since 6th grade. The original version used an RFID sensor and servo mounted in a drilled-out outlet fuse box. The current version is a fully redesigned system with a custom compact enclosure, integrated power management, and phone unlock support.</p>
         <ul class="modal-bullets">
           <li><strong>v1 (2022):</strong> RFID fob detection → servo actuating deadbolt, powered by outlet adapter, mounted in a drilled fuse box</li>
-          <li><strong>v2 (current):</strong> Arduino Nano + RC522 RFID module in a custom-designed compact enclosure</li>
+          <li><strong>v2 (current):</strong> Arduino Nano + RC522 RFID module in a custom-designed compact enclosure with countersunk screws</li>
           <li>Unlockable via RFID fobs or phone NFC — NFC sticker on front of enclosure</li>
           <li>Integrated LiPo battery with dedicated charging system — recharges weekly</li>
           <li>Auto-locks after 1 minute</li>
-          <li>Countersunk screws, clean custom case design</li>
         </ul>
         <div class="modal-links">
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+          <a href="https://github.com/jaiveerbala" class="btn btn-ghost" target="_blank">GitHub (coming soon)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Acoustic Levitator Modal -->
+  <!-- Acoustic Levitator -->
   <div class="modal-overlay" id="modal-levitator">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -634,32 +575,35 @@
         <div class="modal-tag">Embedded · Electrical · 2023 · 7th Grade</div>
         <div class="modal-title">Acoustic Levitator</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1KSUTiZS916jiQrt7oe8TT7xcsMbn9wBD&sz=w1200" alt="Acoustic Levitator" />
+          <img src="https://drive.google.com/thumbnail?id=1xUVhcJFcPCD6CLHFj73zRYqn3DSheiof&sz=w1200" alt="Testbench 1 ball" class="lightbox-trigger" style="object-fit:contain;background:#f0ece6;" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1xUVhcJFcPCD6CLHFj73zRYqn3DSheiof&sz=w600" alt="Testbench 1 ball"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1l0wjn-Ht29NJP0MopNqDDRJDAgA7bZso&sz=w600" alt="Testbench 3 balls"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=132a4l4wKOp5RNv3bix8i9SzHuHmsBiK7&sz=w600" alt="Circuit"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1r1eewjA-Ek3Wx2VPFsubvCF0keM-9fc7&sz=w600" alt="Motor controller test"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1l0wjn-Ht29NJP0MopNqDDRJDAgA7bZso&sz=w600" alt="3 balls"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1KSUTiZS916jiQrt7oe8TT7xcsMbn9wBD&sz=w600" alt="Built zoomed"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=132a4l4wKOp5RNv3bix8i9SzHuHmsBiK7&sz=w600" alt="Circuit"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1P3VwKhEdHo2GYSqeEiVjh2shyM2bzPEo&sz=w600" alt="Circuit 2"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1r1eewjA-Ek3Wx2VPFsubvCF0keM-9fc7&sz=w600" alt="Motor controller test"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1YRADs41WSiMCqKzD7PxWshxnirle6IBG&sz=w600" alt="Motor controller"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1c9ivm6i7174OEltg0bYk7ye_slS9ftG-/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">1 ball test</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1mcyAkFYYS7WEPKI_ueIOjC1GbZzbhYY6/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">levitator zoomed</div></div>
         </div>
-        <p class="modal-desc">
-          Standing waves between two opposing ultrasonic transducers create nodes of pressure
-          that can suspend small objects in midair without any physical contact. Built by desoldering
-          the transmitters from SR04 sensors and driving them with a motor controller for amplification.
-        </p>
+        <p class="modal-desc">Standing waves between two opposing ultrasonic transducers create pressure nodes that suspend small objects in midair without any physical contact. Built by desoldering the transmitters from SR04 sensors and driving them with a motor controller for amplification.</p>
         <ul class="modal-bullets">
           <li>Desoldered ultrasonic transmitters from SR04 sensors</li>
-          <li>Powered through a motor controller to amplify output — more than stock driver circuits provide</li>
+          <li>Powered through a motor controller to amplify output beyond stock driver circuits</li>
           <li>Required careful physical alignment and distance calibration to find the standing wave sweet spot</li>
           <li>3D-printed enclosure once a working alignment was found</li>
           <li>Plug-in power cable on the back powers both the Arduino and motor controller</li>
           <li>Can stack multiple pieces of foam into spinning rings of levitated balls</li>
         </ul>
+        <div class="modal-links">
+          <a href="https://github.com/jaiveerbala" class="btn btn-ghost" target="_blank">GitHub (coming soon)</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Pi Server Modal -->
+  <!-- Pi Server -->
   <div class="modal-overlay" id="modal-pi-server">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -667,42 +611,43 @@
         <div class="modal-tag">Embedded · 2025 · 8th Grade</div>
         <div class="modal-title">Raspberry Pi CAD File Server</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1UxBVZ6SURoO4J-9Z2oGo8u7BlmX8rRsd&sz=w1200" alt="Pi Server" />
+          <img src="https://drive.google.com/thumbnail?id=1UxBVZ6SURoO4J-9Z2oGo8u7BlmX8rRsd&sz=w1200" alt="Pi Server" class="lightbox-trigger" />
         </div>
         <div class="modal-media-grid">
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1_ge9X5-omAmHBr-TdtDuTPLDNRKcGMsp&sz=w600" alt="Pi 2"/></div>
-          <div class="modal-media-grid-item"><img src="https://drive.google.com/thumbnail?id=1jEz1LymZOUYFFQVXQSY-QBQusLEpecjq&sz=w600" alt="Pi 3"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1_ge9X5-omAmHBr-TdtDuTPLDNRKcGMsp&sz=w600" alt="IMG_1689"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1jEz1LymZOUYFFQVXQSY-QBQusLEpecjq&sz=w600" alt="IMG_1690"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1dTfv9sey9HlfU-C1tDVNp7PRmlh2KYyB&sz=w600" alt="IMG_1694"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=10jwJCQ6XxJPGMM4_dPStlkOfteuql-mx&sz=w600" alt="IMG_1693"/></div>
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=1N3lYxBOFu_sHcnX65rdg6CLVae7cl2Sv&sz=w600" alt="IMG_1692"/></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1NCRUyGyKhuMI44-NSzB1ui9gf1nKJVf8/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1762</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/163K9j7xbcCPY9mup8wHI0b-K6AlhaGmS/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">IMG_1763</div></div>
         </div>
-        <p class="modal-desc">
-          Built a self-hosted file server for the FTC robotics team to solve a real workflow problem:
-          SolidWorks didn't offer free student PDM (file sharing) at the time, leaving the team without
-          a reliable way to sync CAD files across members.
-        </p>
+        <p class="modal-desc">Built a self-hosted file server for my FTC robotics team to solve a workflow problem: SolidWorks didn't offer free student PDM (file sharing) at the time, leaving the team without a reliable way to sync CAD files across members.</p>
         <ul class="modal-bullets">
-          <li>Raspberry Pi 3B+ running 24/7 in my room as a persistent sync node</li>
+          <li>Raspberry Pi 3B+ running 24/7 as a persistent sync node</li>
           <li>Resilio Sync monitors the shared folder and pushes changes to all connected devices</li>
           <li>Always-on server ensures the latest files are available even when all other devices are offline</li>
+          <li>Automatically boots and reconnects after a power disconnect</li>
           <li>Built as a workaround before SolidWorks offered free student PDM licenses</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- JVPlanner Modal -->
+  <!-- JVPlanner -->
   <div class="modal-overlay" id="modal-jvplanner">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
       <div class="modal-inner">
         <div class="modal-tag">Software · 2026 · 9th Grade</div>
         <div class="modal-title">JVPlanner — Custom Calendar App</div>
-        <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=16Fn7U-yWy09H_x3px5wllQrIXVaK59nP&sz=w1200" alt="JVPlanner screenshot" />
+        <div class="modal-media" style="background:#111;border-radius:var(--radius);overflow:hidden;margin-bottom:28px;">
+          <iframe src="https://drive.google.com/file/d/1i2qwVeLyd7IkVnjI0L2S-KPb5fIEdhCQ/preview" width="100%" height="380" allow="autoplay" style="border:none;display:block;"></iframe>
         </div>
-        <p class="modal-desc">
-          After trying Notion, Apple Calendar, Reminders, and others and finding something wrong with
-          each one, I built my own. JVPlanner is a custom calendar and task management app that works
-          exactly the way I need it to — hosted on GitHub, accessible as a PWA on iPhone.
-        </p>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item lightbox-trigger"><img src="https://drive.google.com/thumbnail?id=16Fn7U-yWy09H_x3px5wllQrIXVaK59nP&sz=w600" alt="Screenshot"/></div>
+        </div>
+        <p class="modal-desc">After trying Notion, Apple Calendar, Reminders, and others and finding something wrong with each one, I built my own. JVPlanner is a custom calendar and task management app that works exactly the way I need it to. It's hosted on GitHub and accessible as a PWA on iPhone.</p>
         <ul class="modal-bullets">
           <li>Three separate calendars: General, School, and College — plus an Everything tab</li>
           <li>Integrated to-do list per calendar, synced with daily calendar events</li>
@@ -711,57 +656,73 @@
           <li>Push notifications to phone for upcoming tasks</li>
           <li>Google Cloud Services OAuth — only I can log in, works seamlessly across all devices</li>
           <li>Downloadable as a PWA on iOS; works on Mac, phone, and laptop</li>
-          <li>Custom color scheme</li>
         </ul>
         <div class="modal-links">
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+          <a href="https://github.com/jaiveerbala" class="btn btn-ghost" target="_blank">GitHub (coming soon)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Space Invaders Modal -->
+  <!-- Space Invaders -->
   <div class="modal-overlay" id="modal-space-invaders">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
       <div class="modal-inner">
         <div class="modal-tag">Software · 2024 · 7th Grade</div>
-        <div class="modal-title">Space Invaders Recreation</div>
-        <div class="modal-media" style="background:#1a1814; min-height:200px; display:flex; align-items:center; justify-content:center;">
-          <span style="color:#f0e8e0; font-family:'Fraunces',serif; font-size:2rem; letter-spacing:.1em;">SPACE INVADERS</span>
+        <div class="modal-title">Space Invaders</div>
+        <!-- Playable game embed -->
+        <div class="game-embed" id="si-game-container">
+          <canvas id="si-canvas" width="400" height="400" tabindex="0" style="display:block;margin:0 auto;cursor:pointer;"></canvas>
+          <div class="game-embed-label">← Arrow keys to move · Space / Up to shoot · Click canvas to focus</div>
         </div>
-        <p class="modal-desc">
-          A close recreation of the original Space Invaders arcade game, built as the final project for
-          an intro to computer science elective in 7th grade. The instructor named it the most complex
-          and most interesting submission in the class.
-        </p>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1Zq-HJIEstg_ejc5UnJ-VvWT4K0d_ay1j/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">gameplay recording</div></div>
+        </div>
+        <p class="modal-desc">A close recreation of the original Space Invaders arcade game, built as the final project for an intro to computer science elective in 7th grade. The instructor named it the most complex and most interesting submission in the class.</p>
         <ul class="modal-bullets">
           <li>Close recreation of the original 1978 Space Invaders game mechanics</li>
           <li>Final project for 7th grade intro CS elective</li>
           <li>Named most complex and most interesting final project by the instructor</li>
+          <li>Three enemy types, shields, bonus ship, score tracking, and lives system</li>
         </ul>
         <div class="modal-links">
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+          <a href="https://github.com/jaiveerbala" class="btn btn-ghost" target="_blank">GitHub (coming soon)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Tic Tac Toe Modal -->
+  <!-- Tic Tac Toe -->
   <div class="modal-overlay" id="modal-tictactoe">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
       <div class="modal-inner">
         <div class="modal-tag">Software · 2023 · 7th Grade</div>
         <div class="modal-title">Unbeatable Tic-Tac-Toe</div>
-        <div class="modal-media" style="background:#f0e8e0; min-height:160px; display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'Fraunces',serif; font-size:4rem; color:#c8602a; opacity:.5;">✕ ○ ✕</span>
+        <!-- Playable TTT -->
+        <div class="ttt-wrap" id="ttt-game">
+          <div class="ttt-status" id="ttt-status">You are X. Your turn.</div>
+          <div class="ttt-board" id="ttt-board">
+            <div class="ttt-cell" data-i="0"></div>
+            <div class="ttt-cell" data-i="1"></div>
+            <div class="ttt-cell" data-i="2"></div>
+            <div class="ttt-cell" data-i="3"></div>
+            <div class="ttt-cell" data-i="4"></div>
+            <div class="ttt-cell" data-i="5"></div>
+            <div class="ttt-cell" data-i="6"></div>
+            <div class="ttt-cell" data-i="7"></div>
+            <div class="ttt-cell" data-i="8"></div>
+          </div>
+          <div class="ttt-controls">
+            <button class="ttt-btn ttt-btn-primary" id="ttt-reset">New Game</button>
+          </div>
         </div>
-        <p class="modal-desc">
-          A Python console Tic-Tac-Toe game against the computer. No machine learning or AI — just
-          hardcoded logic, multi-step simulated lookaheads, fork detection and blocking. The result is
-          a computer that essentially can't be beaten; most games end in a draw.
-        </p>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1cqVhjxkxxiwuOL6DIUw6k6IwBbs50BU4/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">computer win</div></div>
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/10wNJ-I3izW4PQukBtkjXjt6hWTAahfuK/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">tie game</div></div>
+        </div>
+        <p class="modal-desc">A Python console Tic-Tac-Toe game against the computer (code). No machine learning or AI, just hardcoded logic, multi-step simulated lookaheads, fork detection and blocking. The result is a computer that essentially can't be beaten; most games end in a draw.</p>
         <ul class="modal-bullets">
           <li>Python console-based, player vs. computer</li>
           <li>Computer attempts to fork the player (create two simultaneous winning threats)</li>
@@ -770,13 +731,13 @@
           <li>Essentially unbeatable — most games result in a tie; some in a computer win</li>
         </ul>
         <div class="modal-links">
-          <a href="#" class="btn btn-ghost" onclick="return false;">GitHub (coming soon)</a>
+          <a href="https://github.com/jaiveerbala" class="btn btn-ghost" target="_blank">GitHub (coming soon)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CleanFlight Modal -->
+  <!-- CleanFlight -->
   <div class="modal-overlay" id="modal-cleanflight">
     <div class="modal">
       <div class="modal-close"><button class="modal-close-btn" data-close>✕</button></div>
@@ -784,12 +745,12 @@
         <div class="modal-tag">Concept · 2025</div>
         <div class="modal-title">CleanFlight — AI Drone Cleaning Fleet</div>
         <div class="modal-media">
-          <img src="https://drive.google.com/thumbnail?id=1Eu86bBUE3u3CfOdCnojr8bUt-mbOFF2V&sz=w1200" alt="CleanFlight" />
+          <img src="https://drive.google.com/thumbnail?id=1Eu86bBUE3u3CfOdCnojr8bUt-mbOFF2V&sz=w1200" alt="Exploded View" class="lightbox-trigger" style="object-fit:contain;background:#f0ece6;" />
         </div>
-        <p class="modal-desc">
-          A concept developed for an engineering challenge — a self-coordinating fleet of AI-powered
-          drones that can autonomously clean large outdoor areas far faster than any human crew.
-        </p>
+        <div class="modal-media-grid">
+          <div class="modal-media-grid-item is-video lightbox-trigger" data-video="https://drive.google.com/file/d/1GDercCJ2U68qiIYp11YYh6SdXBG1XK5N/preview"><span style="color:#fff;font-size:1.4rem;">▶</span><div style="font-size:.7rem;color:#aaa;margin-top:6px;">Revolve render</div></div>
+        </div>
+        <p class="modal-desc">A concept developed for an engineering challenge — a self-coordinating fleet of AI-powered drones that can autonomously clean large outdoor areas far faster than any human crew.</p>
         <ul class="modal-bullets">
           <li>Fleet of drones with onboard AI and hive-mind coordination</li>
           <li>Each drone equipped with a vacuum pickup system for debris collection</li>
@@ -803,6 +764,16 @@
           <a href="https://drive.google.com/file/d/1xuiXIjSI7w0mfhunoVz3nRAJSmofXJTY/view" class="btn btn-primary" target="_blank" rel="noopener">Watch Submission Video</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close">✕</button>
+      <img id="lightbox-img" src="" alt="" style="display:none;" />
+      <iframe id="lightbox-video" src="" width="800" height="450" allow="autoplay" style="display:none;border:none;border-radius:8px;max-width:90vw;" allowfullscreen></iframe>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
 
@@ -824,17 +795,14 @@
       </div>
     </div>
   </section>
-
-  <footer>
-    <p>© 2026 Jaiveer Bala. Built by hand.</p>
-  </footer>
+  <footer><p>© 2026 Jaiveer Bala</p></footer>
 
   <script>
-    // Nav scroll
+    // ── Nav scroll ──────────────────────────────────────────────────
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
-    // Filter
+    // ── Filter ──────────────────────────────────────────────────────
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -846,45 +814,491 @@
       });
     });
 
-    // Open modals on card click
+    // ── Modal open/close ────────────────────────────────────────────
+    function openModal(id) {
+      const overlay = document.getElementById('modal-' + id);
+      if (overlay) { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    }
     document.querySelectorAll('.proj-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const id = card.dataset.id;
-        const overlay = document.getElementById('modal-' + id);
-        if (overlay) {
-          overlay.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        }
-      });
+      card.addEventListener('click', () => openModal(card.dataset.id));
     });
-
-    // Close modals
     function closeModal(overlay) {
       overlay.classList.remove('open');
       document.body.style.overflow = '';
+      // pause any iframes
+      overlay.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
     }
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
-      overlay.addEventListener('click', e => {
-        if (e.target === overlay) closeModal(overlay);
-      });
-      overlay.querySelectorAll('[data-close]').forEach(btn => {
-        btn.addEventListener('click', () => closeModal(overlay));
-      });
+      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(overlay); });
+      overlay.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeModal(overlay)));
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
+        closeLightbox();
       }
     });
 
-    // Deep link: open modal if hash matches a project ID
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      const overlay = document.getElementById('modal-' + hash);
-      if (overlay) {
-        setTimeout(() => { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }, 300);
+    // Deep link
+    const hash = window.location.hash.replace('#','');
+    if (hash) setTimeout(() => openModal(hash), 300);
+
+    // ── Lightbox ────────────────────────────────────────────────────
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbVid = document.getElementById('lightbox-video');
+    const lbCap = document.getElementById('lightbox-caption');
+
+    function openLightbox(el) {
+      if (el.dataset.video) {
+        lbImg.style.display = 'none';
+        lbVid.src = el.dataset.video;
+        lbVid.style.display = 'block';
+        lbCap.textContent = '';
+      } else {
+        const img = el.querySelector('img') || el;
+        const src = img.src ? img.src.replace('w600','w1200') : '';
+        lbImg.src = src;
+        lbImg.alt = img.alt || '';
+        lbImg.style.display = 'block';
+        lbVid.style.display = 'none';
+        lbCap.textContent = img.alt || '';
       }
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
+    function closeLightbox() {
+      lb.classList.remove('open');
+      lbVid.src = '';
+      lbImg.src = '';
+    }
+    document.querySelectorAll('.lightbox-trigger').forEach(el => {
+      el.addEventListener('click', e => { e.stopPropagation(); openLightbox(el); });
+    });
+    lb.addEventListener('click', e => { if (e.target === lb || e.target === document.querySelector('.lightbox-inner')) closeLightbox(); });
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+
+    // Main cover images also lightbox-able
+    document.querySelectorAll('.modal-media img.lightbox-trigger').forEach(img => {
+      img.style.cursor = 'zoom-in';
+    });
+
+    // ── Tic-Tac-Toe ────────────────────────────────────────────────
+    (function(){
+      const board = Array(9).fill(null);
+      let gameOver = false;
+      const statusEl = document.getElementById('ttt-status');
+      const cells = document.querySelectorAll('.ttt-cell');
+
+      const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+      function checkWinner(b, player) {
+        return wins.find(([a,c,d]) => b[a]===player && b[c]===player && b[d]===player) || null;
+      }
+      function isFull(b) { return b.every(c => c !== null); }
+
+      function computerMove(b) {
+        // Win
+        for (let i=0;i<9;i++) { if(!b[i]){b[i]='O'; if(checkWinner(b,'O')) return i; b[i]=null; } }
+        // Block
+        for (let i=0;i<9;i++) { if(!b[i]){b[i]='X'; if(checkWinner(b,'X')){b[i]=null;return i;} b[i]=null; } }
+        // Fork
+        for (let i=0;i<9;i++) {
+          if(!b[i]){
+            b[i]='O';
+            let cnt=0;
+            for(let j=0;j<9;j++){if(!b[j]){b[j]='O';if(checkWinner(b,'O'))cnt++;b[j]=null;}}
+            b[i]=null;
+            if(cnt>=2) return i;
+          }
+        }
+        // Block fork
+        for (let i=0;i<9;i++) {
+          if(!b[i]){
+            b[i]='X';
+            let cnt=0;
+            for(let j=0;j<9;j++){if(!b[j]){b[j]='X';if(checkWinner(b,'X'))cnt++;b[j]=null;}}
+            b[i]=null;
+            if(cnt>=2) return i;
+          }
+        }
+        // Center, corners, edges
+        const pref=[4,0,2,6,8,1,3,5,7];
+        for(const i of pref){ if(!b[i]) return i; }
+        return -1;
+      }
+
+      function render() {
+        cells.forEach((c,i) => {
+          c.textContent = board[i] || '';
+          c.className = 'ttt-cell' + (board[i] ? ' taken ' + board[i].toLowerCase() : '');
+        });
+      }
+
+      function endGame(msg, winLine) {
+        gameOver = true;
+        statusEl.textContent = msg;
+        if (winLine) {
+          winLine.forEach(i => cells[i].classList.add('winning-cell'));
+          document.getElementById('ttt-game').classList.add('ttt-winning');
+        }
+      }
+
+      function playerMove(i) {
+        if (gameOver || board[i]) return;
+        board[i] = 'X';
+        render();
+        const pw = checkWinner(board,'X');
+        if (pw) { endGame('You win! (Nice one)', pw); return; }
+        if (isFull(board)) { endGame("It's a draw — as expected."); return; }
+        statusEl.textContent = 'Computer is thinking…';
+        setTimeout(() => {
+          const ci = computerMove(board);
+          if (ci === -1) return;
+          board[ci] = 'O';
+          render();
+          const cw = checkWinner(board,'O');
+          if (cw) { endGame('Computer wins.', cw); return; }
+          if (isFull(board)) { endGame("It's a draw — as expected."); return; }
+          statusEl.textContent = 'Your turn (X)';
+        }, 300);
+      }
+
+      cells.forEach((c,i) => c.addEventListener('click', () => playerMove(i)));
+
+      document.getElementById('ttt-reset').addEventListener('click', () => {
+        board.fill(null); gameOver = false;
+        document.getElementById('ttt-game').classList.remove('ttt-winning');
+        cells.forEach(c => c.classList.remove('winning-cell'));
+        statusEl.textContent = 'Your turn (X)';
+        render();
+      });
+
+      render();
+    })();
+
+    // ── Space Invaders ──────────────────────────────────────────────
+    (function(){
+      const canvas = document.getElementById('si-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = 400, H = 400;
+      let animId = null;
+
+      // ─── State ───
+      let score, lives, gameOver, gameWon, gameStarted, frame;
+      let swarmDX, swarmX, swarmY, swarmDropping, swarmDropLeft, swarmSpeedMul;
+      let cannonX, cannonY, cannonSpeed;
+      let bulletActive, bulletX, bulletY, bulletSpeed, shootCooldown;
+      let eb0active,eb0x,eb0y,eb0spd,eb0type;
+      let eb1active,eb1x,eb1y,eb1spd,eb1type;
+      let eb2active,eb2x,eb2y,eb2spd,eb2type;
+      let fireTimer;
+      let shieldX,shieldY,shieldHP;
+      let bonusActive,bonusX,bonusY,bonusPoints,bonusTimer;
+      let alienX,alienY,alienAlive,alienRow,alienAnim,alienPts;
+      let starX,starY,starBig;
+      let flashX,flashY,flashT,numFlashes;
+      const COLS=11,ROWS=5;
+      const pos0=30,pos1=115,pos2=210,pos3=295;
+
+      const keys={};
+      const keyPrev={};
+      canvas.addEventListener('keydown',e=>{keys[e.key]=true;e.preventDefault();});
+      canvas.addEventListener('keyup',e=>{keys[e.key]=false;});
+
+      function kd(k){return !!keys[k];}
+      function kwd(k){return keys[k] && !keyPrev[k];}
+
+      function initGame(){
+        score=0;lives=3;gameOver=false;gameWon=false;gameStarted=false;frame=0;
+        swarmDX=0.35;swarmX=0;swarmY=0;swarmDropping=false;swarmDropLeft=0;swarmSpeedMul=1;
+        cannonX=185;cannonY=365;cannonSpeed=5;
+        bulletActive=false;bulletX=0;bulletY=0;bulletSpeed=14;shootCooldown=0;
+        eb0active=false;eb1active=false;eb2active=false;fireTimer=0;
+        shieldX=[];shieldY=[];shieldHP=[];
+        let si=0;
+        [[pos0],[pos1],[pos2],[pos3]].forEach(([p])=>{
+          for(let sc=0;sc<3;sc++) for(let sr=0;sr<2;sr++){shieldX[si]=p+sc*14;shieldY[si]=338+sr*14;shieldHP[si]=3;si++;}
+        });
+        bonusActive=false;bonusX=-60;bonusY=32;bonusPoints=300;bonusTimer=0;
+        alienX=[];alienY=[];alienAlive=[];alienRow=[];alienAnim=[];alienPts=[];
+        for(let r=0;r<ROWS;r++) for(let c=0;c<COLS;c++){
+          let ai=r*COLS+c;
+          alienX[ai]=20+c*32;alienY[ai]=68+r*28;alienAlive[ai]=true;alienRow[ai]=r;alienAnim[ai]=0;
+          alienPts[ai]=r===0?30:r<3?20:10;
+        }
+        starX=[];starY=[];starBig=[];
+        for(let i=0;i<55;i++){starX[i]=(i*137+23)%400;starY[i]=(i*97+11)%385;starBig[i]=i%4===0;}
+        flashX=[];flashY=[];flashT=[];numFlashes=0;
+      }
+
+      function rgb(r,g,b){return `rgb(${r},${g},${b})`;}
+
+      function getLeft(){let m=9999;for(let i=0;i<55;i++)if(alienAlive[i]&&alienX[i]<m)m=alienX[i];return m-4;}
+      function getRight(){let m=-9999;for(let i=0;i<55;i++)if(alienAlive[i]&&alienX[i]+22>m)m=alienX[i]+22;return m+4;}
+      function countAlive(){let n=0;for(let i=0;i<55;i++)if(alienAlive[i])n++;return n;}
+
+      function boxHit(x1,y1,w1,h1,x2,y2,w2,h2){
+        return x1<x2+w2&&x1+w1>x2&&y1<y2+h2&&y1+h1>y2;
+      }
+
+      function getBottomAliens(){
+        let res=[];
+        for(let c=0;c<COLS;c++) for(let r=ROWS-1;r>=0;r--){let idx=r*COLS+c;if(alienAlive[idx]){res.push(idx);break;}}
+        return res;
+      }
+
+      function moveSwarm(){
+        let alive=countAlive();
+        swarmSpeedMul=Math.min(1.3,1+(55-alive)*0.006);
+        if(swarmDropping){
+          let step=1.4*swarmSpeedMul;
+          swarmY+=step;swarmDropLeft-=step;
+          if(swarmDropLeft<=0){swarmDropLeft=0;swarmDropping=false;swarmDX=-swarmDX;}
+        } else {
+          swarmX+=swarmDX*swarmSpeedMul;
+          let le=getLeft()+swarmX,re=getRight()+swarmX;
+          if(re>394&&swarmDX>0){swarmDropping=true;swarmDropLeft=14;}
+          if(le<6&&swarmDX<0){swarmDropping=true;swarmDropLeft=14;}
+        }
+        if(frame%18===0) for(let i=0;i<55;i++) alienAnim[i]=alienAnim[i]===0?1:0;
+      }
+
+      function moveCannon(){
+        if(kd('ArrowLeft'))cannonX-=cannonSpeed;
+        if(kd('ArrowRight'))cannonX+=cannonSpeed;
+        cannonX=Math.max(2,Math.min(368,cannonX));
+        if(shootCooldown>0)shootCooldown--;
+        if((kwd(' ')||kwd('ArrowUp'))&&shootCooldown===0){
+          bulletActive=true;bulletX=cannonX+15;bulletY=cannonY;shootCooldown=8;
+        }
+      }
+
+      function moveBullet(){
+        if(bulletActive){bulletY-=bulletSpeed;if(bulletY<-10)bulletActive=false;}
+      }
+
+      function moveEnemyBullets(){
+        [0,1,2].forEach(n=>{
+          let active=n===0?eb0active:n===1?eb1active:eb2active;
+          if(!active) return;
+          if(n===0){eb0y+=eb0spd;if(eb0type===1)eb0x+=Math.sin(eb0y*.25)*2;if(eb0y>410)eb0active=false;}
+          if(n===1){eb1y+=eb1spd;if(eb1type===1)eb1x+=Math.sin(eb1y*.25)*2;if(eb1y>410)eb1active=false;}
+          if(n===2){eb2y+=eb2spd;if(eb2type===1)eb2x+=Math.sin(eb2y*.25)*2;if(eb2y>410)eb2active=false;}
+        });
+        fireTimer++;
+        if(fireTimer>=55){
+          fireTimer=0;
+          let shooters=getBottomAliens();
+          if(shooters.length>0){
+            let pick=shooters[Math.floor(Math.random()*shooters.length)];
+            let sx=alienX[pick]+swarmX+10,sy=alienY[pick]+swarmY+18;
+            let spd=2.2+Math.random()*1.6,typ=Math.floor(Math.random()*3);
+            if(!eb0active){eb0active=true;eb0x=sx;eb0y=sy;eb0spd=spd;eb0type=typ;}
+            else if(!eb1active){eb1active=true;eb1x=sx;eb1y=sy;eb1spd=spd;eb1type=typ;}
+            else if(!eb2active){eb2active=true;eb2x=sx;eb2y=sy;eb2spd=spd;eb2type=typ;}
+          }
+        }
+      }
+
+      function moveBonus(){
+        bonusTimer++;
+        if(!bonusActive&&bonusTimer>=800){bonusActive=true;bonusX=-60;bonusTimer=0;bonusPoints=[50,100,150,300][Math.floor(Math.random()*4)];}
+        if(bonusActive){bonusX+=1.5;if(bonusX>460)bonusActive=false;}
+      }
+
+      function addFlash(x,y){flashX[numFlashes]=x;flashY[numFlashes]=y;flashT[numFlashes]=12;numFlashes++;}
+      function updateFlashes(){
+        for(let i=numFlashes-1;i>=0;i--){
+          flashT[i]--;
+          if(flashT[i]<=0){flashX[i]=flashX[numFlashes-1];flashY[i]=flashY[numFlashes-1];flashT[i]=flashT[numFlashes-1];numFlashes--;}
+        }
+      }
+
+      function checkHits(){
+        let bx=bulletX-2,by=bulletY-8;
+        if(bulletActive){
+          for(let i=0;i<55;i++){
+            if(!alienAlive[i])continue;
+            let ax=alienX[i]+swarmX,ay=alienY[i]+swarmY;
+            if(boxHit(bx,by,4,10,ax+2,ay+2,18,14)){alienAlive[i]=false;bulletActive=false;score+=alienPts[i];addFlash(ax+11,ay+8);break;}
+          }
+          if(bulletActive&&bonusActive&&boxHit(bx,by,4,10,bonusX,bonusY,40,14)){bonusActive=false;bulletActive=false;score+=bonusPoints;addFlash(bonusX+20,bonusY+7);}
+          for(let s=0;s<24;s++)if(shieldHP[s]>0&&boxHit(bx,by,4,10,shieldX[s],shieldY[s],12,12)){shieldHP[s]--;bulletActive=false;break;}
+        }
+        [[eb0active,eb0x,eb0y,'eb0'],[eb1active,eb1x,eb1y,'eb1'],[eb2active,eb2x,eb2y,'eb2']].forEach(([act,ex,ey,nm])=>{
+          if(!act)return;
+          if(boxHit(ex-3,ey-4,6,8,cannonX,cannonY,30,16)){
+            if(nm==='eb0')eb0active=false;if(nm==='eb1')eb1active=false;if(nm==='eb2')eb2active=false;
+            lives--;addFlash(cannonX+15,cannonY+8);if(lives<=0)gameOver=true;
+          }
+          for(let s=0;s<24;s++)if(shieldHP[s]>0&&boxHit(ex-3,ey-4,6,8,shieldX[s],shieldY[s],12,12)){shieldHP[s]--;if(nm==='eb0')eb0active=false;if(nm==='eb1')eb1active=false;if(nm==='eb2')eb2active=false;}
+        });
+        for(let i=0;i<55;i++)if(alienAlive[i]&&alienY[i]+swarmY>=325)gameOver=true;
+      }
+
+      // ─── Drawing ───
+      function drawStars(){
+        ctx.save();
+        for(let i=0;i<55;i++){
+          let t=Math.abs(Math.sin(frame*.04+i));
+          let br=Math.floor(160+t*95);
+          ctx.fillStyle=rgb(br,br,br);
+          ctx.beginPath();ctx.arc(starX[i],starY[i],starBig[i]?1:.5,0,Math.PI*2);ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function drawSquid(x,y,f){
+        ctx.fillStyle=rgb(230,70,255);
+        ctx.beginPath();ctx.ellipse(x+11,y+5,6,5,0,0,Math.PI*2);ctx.fill();
+        ctx.fillRect(x+5,y+6,12,8);
+        ctx.fillStyle='black';ctx.beginPath();ctx.ellipse(x+8,y+5,1.5,1.5,0,0,Math.PI*2);ctx.fill();
+        ctx.beginPath();ctx.ellipse(x+14,y+5,1.5,1.5,0,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(230,70,255);
+        if(f===0){ctx.fillRect(x+6,y-4,2,5);ctx.fillRect(x+14,y-4,2,5);}
+        else{ctx.fillRect(x+5,y-5,2,6);ctx.fillRect(x+15,y-5,2,6);}
+        ctx.fillStyle=rgb(200,40,230);
+        if(f===0){ctx.fillRect(x+5,y+12,2,5);ctx.fillRect(x+10,y+12,2,5);ctx.fillRect(x+15,y+12,2,5);}
+        else{ctx.fillRect(x+4,y+12,2,6);ctx.fillRect(x+10,y+12,2,6);ctx.fillRect(x+16,y+12,2,6);}
+      }
+      function drawCrab(x,y,f){
+        ctx.fillStyle=rgb(60,210,255);
+        ctx.beginPath();ctx.ellipse(x+11,y+8,8,6,0,0,Math.PI*2);ctx.fill();
+        ctx.fillRect(x+3,y+8,16,6);
+        ctx.fillStyle='black';ctx.beginPath();ctx.ellipse(x+7,y+6,2,2,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(x+15,y+6,2,2,0,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(60,210,255);
+        if(f===0){ctx.fillRect(x-2,y+5,6,3);ctx.fillRect(x+18,y+5,6,3);}
+        else{ctx.fillRect(x-3,y+6,6,3);ctx.fillRect(x+19,y+6,6,3);}
+      }
+      function drawOctopus(x,y,f){
+        ctx.fillStyle=rgb(255,150,20);
+        ctx.beginPath();ctx.ellipse(x+11,y+7,10,7,0,0,Math.PI*2);ctx.fill();
+        ctx.fillRect(x+1,y+7,20,9);
+        ctx.fillStyle='black';ctx.beginPath();ctx.ellipse(x+7,y+6,2,2,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.ellipse(x+15,y+6,2,2,0,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(215,110,0);ctx.beginPath();ctx.ellipse(x+11,y+13,6,2.5,0,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(255,150,20);
+        if(f===0){ctx.fillRect(x+1,y+14,3,5);ctx.fillRect(x+6,y+14,3,6);ctx.fillRect(x+12,y+14,3,5);ctx.fillRect(x+17,y+14,3,6);}
+        else{ctx.fillRect(x+0,y+14,3,6);ctx.fillRect(x+5,y+14,3,5);ctx.fillRect(x+12,y+14,3,6);ctx.fillRect(x+18,y+14,3,5);}
+      }
+
+      function drawCannon(){
+        ctx.fillStyle=rgb(0,210,0);
+        ctx.fillRect(cannonX,cannonY+7,30,9);ctx.fillRect(cannonX+8,cannonY+1,14,9);ctx.fillRect(cannonX+13,cannonY-7,4,10);
+        ctx.fillStyle=rgb(100,255,100);ctx.fillRect(cannonX+9,cannonY+2,5,3);
+      }
+
+      function drawShields(){
+        for(let i=0;i<24;i++){
+          if(shieldHP[i]<=0)continue;
+          ctx.fillStyle=shieldHP[i]===3?rgb(0,210,0):shieldHP[i]===2?rgb(0,155,0):rgb(0,90,0);
+          ctx.fillRect(shieldX[i],shieldY[i],12,12);
+        }
+      }
+
+      function drawBullet(){
+        if(!bulletActive)return;
+        ctx.fillStyle=rgb(255,255,0);ctx.fillRect(bulletX-2,bulletY-8,4,12);
+      }
+
+      function drawEnemyBullets(){
+        [[eb0active,eb0x,eb0y,eb0type],[eb1active,eb1x,eb1y,eb1type],[eb2active,eb2x,eb2y,eb2type]].forEach(([a,x,y,t])=>{
+          if(!a)return;
+          if(t===0){ctx.fillStyle=rgb(255,60,60);ctx.fillRect(x-2,y-5,4,10);}
+          else if(t===1){ctx.fillStyle=rgb(255,210,0);ctx.fillRect(x,y-8,3,4);ctx.fillRect(x-3,y-4,6,4);ctx.fillRect(x-3,y,6,4);ctx.fillRect(x,y+4,3,4);}
+          else{ctx.fillStyle=rgb(200,60,255);ctx.fillRect(x-2,y-7,4,12);}
+        });
+      }
+
+      function drawBonus(){
+        if(!bonusActive)return;
+        let x=bonusX,y=bonusY;
+        ctx.fillStyle=rgb(255,30,30);ctx.beginPath();ctx.ellipse(x+20,y+7,21,6,0,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(255,110,110);ctx.beginPath();ctx.ellipse(x+20,y+2,11,5,0,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(255,255,180);
+        ctx.beginPath();ctx.arc(x+10,y+6,3,0,Math.PI*2);ctx.fill();
+        ctx.beginPath();ctx.arc(x+20,y+6,3,0,Math.PI*2);ctx.fill();
+        ctx.beginPath();ctx.arc(x+30,y+6,3,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle=rgb(255,255,0);ctx.font='8px monospace';ctx.fillText('+'+bonusPoints,x+7,y-3);
+      }
+
+      function drawFlashes(){
+        for(let i=0;i<numFlashes;i++){
+          let t=flashT[i]/12,r=Math.floor(14*(1-t));
+          let br=Math.floor(255*t);
+          ctx.fillStyle=rgb(br,Math.floor(br*.78),50);
+          ctx.beginPath();ctx.arc(flashX[i],flashY[i],r,0,Math.PI*2);ctx.fill();
+        }
+      }
+
+      function drawHUD(){
+        ctx.fillStyle=rgb(0,255,0);ctx.font='bold 12px monospace';
+        ctx.fillText('SCORE: '+score,6,14);
+        ctx.fillText('LIVES: '+lives,285,14);
+      }
+
+      function drawStart(){
+        ctx.fillStyle='black';ctx.fillRect(0,0,W,H);drawStars();
+        ctx.fillStyle=rgb(0,255,0);ctx.font='bold 22px monospace';ctx.fillText('SPACE INVADERS',55,90);
+        ctx.strokeStyle=rgb(0,180,0);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(30,100);ctx.lineTo(370,100);ctx.stroke();
+        ctx.fillStyle='white';ctx.font='10px monospace';ctx.fillText('← → MOVE   SPACE/UP FIRE',80,200);
+        if(Math.floor(frame/28)%2===0){ctx.fillStyle=rgb(255,255,0);ctx.font='bold 13px monospace';ctx.fillText('- CLICK CANVAS, THEN SPACE -',55,340);}
+      }
+
+      function drawGameOver(){
+        ctx.fillStyle='black';ctx.fillRect(0,0,W,H);drawStars();
+        ctx.fillStyle=rgb(255,40,40);ctx.font='bold 30px monospace';ctx.fillText('GAME OVER',75,160);
+        ctx.fillStyle='white';ctx.font='13px monospace';ctx.fillText('SCORE: '+score,150,208);
+        if(Math.floor(frame/28)%2===0){ctx.fillStyle=rgb(255,255,0);ctx.font='11px monospace';ctx.fillText('Press SPACE to play again',80,265);}
+      }
+
+      function drawWin(){
+        ctx.fillStyle='black';ctx.fillRect(0,0,W,H);drawStars();
+        ctx.fillStyle=rgb(0,255,100);ctx.font='bold 30px monospace';ctx.fillText('YOU WIN!',90,155);
+        ctx.fillStyle='white';ctx.font='13px monospace';ctx.fillText('SCORE: '+score,150,205);
+        if(Math.floor(frame/28)%2===0){ctx.fillStyle=rgb(255,255,0);ctx.font='11px monospace';ctx.fillText('Press SPACE to play again',80,265);}
+      }
+
+      function loop(){
+        frame++;
+        if(!gameStarted){
+          drawStart();
+          if(kwd(' ')||kwd('ArrowLeft')||kwd('ArrowRight')){gameStarted=true;}
+          Object.assign(keyPrev,keys);
+          animId=requestAnimationFrame(loop);return;
+        }
+        if(gameOver){drawGameOver();if(kwd(' '))initGame();Object.assign(keyPrev,keys);animId=requestAnimationFrame(loop);return;}
+        if(gameWon){drawWin();if(kwd(' '))initGame();Object.assign(keyPrev,keys);animId=requestAnimationFrame(loop);return;}
+
+        moveCannon();moveSwarm();moveBullet();moveEnemyBullets();moveBonus();updateFlashes();checkHits();
+        if(!gameOver&&countAlive()===0)gameWon=true;
+
+        ctx.fillStyle='black';ctx.fillRect(0,0,W,H);
+        drawStars();drawHUD();drawShields();
+        for(let i=0;i<55;i++){
+          if(!alienAlive[i])continue;
+          let x=Math.floor(alienX[i]+swarmX),y=Math.floor(alienY[i]+swarmY),f=alienAnim[i],row=alienRow[i];
+          if(row===0)drawSquid(x,y,f);else if(row<3)drawCrab(x,y,f);else drawOctopus(x,y,f);
+        }
+        drawBonus();drawCannon();drawBullet();drawEnemyBullets();drawFlashes();
+        ctx.strokeStyle=rgb(0,200,0);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(0,388);ctx.lineTo(400,388);ctx.stroke();
+
+        Object.assign(keyPrev,keys);
+        animId=requestAnimationFrame(loop);
+      }
+
+      // Start game loop when Space Invaders modal opens
+      const siModal = document.getElementById('modal-space-invaders');
+      const obs = new MutationObserver(()=>{
+        if(siModal.classList.contains('open')){
+          if(!animId){initGame();loop();}
+        } else {
+          if(animId){cancelAnimationFrame(animId);animId=null;}
+        }
+      });
+      obs.observe(siModal,{attributes:true,attributeFilter:['class']});
+    })();
   </script>
 </body>
 </html>
