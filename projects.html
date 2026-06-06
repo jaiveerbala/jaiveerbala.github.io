@@ -989,25 +989,57 @@
       if (!el) return;
       if (el.dataset.video) {
         lbImg.style.display = 'none';
-        // Size iframe — add extra height top and bottom, then clip top overflow with negative margin
-        const maxW = Math.min(800, window.innerWidth - 96);
-        const baseH = Math.round(maxW * 9/16);
-        const extra = 60; // extra height so Drive controls bar sits at bottom
-        const clip = 40;  // clip this many px from the top to hide any overflow controls
-        lbVid.width = maxW;
-        lbVid.height = baseH + extra;
-        lbVid.style.width = maxW + 'px';
-        lbVid.style.height = (baseH + extra) + 'px';
-        lbVid.style.marginTop = '-' + clip + 'px';
-        lbVidWrap.style.width = maxW + 'px';
-        lbVidWrap.style.height = (baseH + extra - clip) + 'px';
-        lbVidWrap.style.overflow = 'hidden';
-        lbVid.src = el.dataset.video;
-        lbVidWrap.style.display = 'block';
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const match = el.dataset.video.match(/\/d\/([^/]+)\//);
+        const fileId = match ? match[1] : null;
+
+        if (isMobile && fileId) {
+          // Use native <video> tag on mobile to avoid Drive's broken mobile UI
+          lbVidWrap.style.display = 'none';
+          lbVid.src = '';
+          // Remove any existing native video
+          const existing = document.getElementById('lightbox-native-video');
+          if (existing) existing.remove();
+          const maxW = Math.min(window.innerWidth - 96, 800);
+          const h = Math.round(maxW * 9/16);
+          const vid = document.createElement('video');
+          vid.id = 'lightbox-native-video';
+          vid.controls = true;
+          vid.playsinline = true;
+          vid.style.cssText = `width:${maxW}px;max-width:calc(100vw - 96px);height:${h}px;border-radius:8px;display:block;background:#000;`;
+          vid.src = `https://drive.google.com/uc?export=download&id=${fileId}`;
+          document.querySelector('.lightbox-inner').insertBefore(vid, lbCap);
+        } else {
+          // Desktop: remove native video if present, use iframe
+          const existing = document.getElementById('lightbox-native-video');
+          if (existing) existing.remove();
+          const maxW = Math.min(800, window.innerWidth - 96);
+          const baseH = Math.round(maxW * 9/16);
+          const extra = 60; const clip = 40;
+          lbVid.width = maxW; lbVid.height = baseH + extra;
+          lbVid.style.width = maxW + 'px'; lbVid.style.height = (baseH + extra) + 'px';
+          lbVid.style.marginTop = '-' + clip + 'px';
+          lbVidWrap.style.width = maxW + 'px';
+          lbVidWrap.style.height = (baseH + extra - clip) + 'px';
+          lbVidWrap.style.overflow = 'hidden';
+          lbVid.src = el.dataset.video;
+          lbVidWrap.style.display = 'block';
+        }
         lbCap.textContent = el.querySelector('.vid-label')?.textContent || '';
       } else {
         const img = el.querySelector('img') || el;
         const src = img.src ? img.src.replace('w400','w1200').replace('w600','w1200') : '';
+        lbImg.src = src;
+        lbImg.alt = img.alt || '';
+        lbImg.style.display = 'block';
+        lbVidWrap.style.display = 'none';
+        lbVid.src = '';
+        // Remove native video if present
+        const existing = document.getElementById('lightbox-native-video');
+        if (existing) existing.remove();
+        lbCap.textContent = img.alt || '';
+      }
+    }
         lbImg.src = src;
         lbImg.alt = img.alt || '';
         lbImg.style.display = 'block';
@@ -1028,6 +1060,8 @@
       lb.classList.remove('open');
       lbVid.src = '';
       lbImg.src = '';
+      const existing = document.getElementById('lightbox-native-video');
+      if (existing) existing.remove();
     }
 
     lbPrev.addEventListener('click', e => {
