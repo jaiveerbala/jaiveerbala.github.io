@@ -989,15 +989,19 @@
       if (!el) return;
       if (el.dataset.video) {
         lbImg.style.display = 'none';
-        // Size iframe responsively — extra height so Drive's controls bar doesn't overflow to top
+        // Size iframe — add extra height top and bottom, then clip top overflow with negative margin
         const maxW = Math.min(800, window.innerWidth - 96);
-        const h = Math.round(maxW * 9/16) + 48;
+        const baseH = Math.round(maxW * 9/16);
+        const extra = 60; // extra height so Drive controls bar sits at bottom
+        const clip = 40;  // clip this many px from the top to hide any overflow controls
         lbVid.width = maxW;
-        lbVid.height = h;
+        lbVid.height = baseH + extra;
         lbVid.style.width = maxW + 'px';
-        lbVid.style.height = h + 'px';
+        lbVid.style.height = (baseH + extra) + 'px';
+        lbVid.style.marginTop = '-' + clip + 'px';
         lbVidWrap.style.width = maxW + 'px';
-        lbVidWrap.style.height = h + 'px';
+        lbVidWrap.style.height = (baseH + extra - clip) + 'px';
+        lbVidWrap.style.overflow = 'hidden';
         lbVid.src = el.dataset.video;
         lbVidWrap.style.display = 'block';
         lbCap.textContent = el.querySelector('.vid-label')?.textContent || '';
