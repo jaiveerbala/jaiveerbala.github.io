@@ -989,9 +989,9 @@
       if (!el) return;
       if (el.dataset.video) {
         lbImg.style.display = 'none';
-        // Size iframe responsively
+        // Size iframe responsively — extra height so Drive's controls bar doesn't overflow to top
         const maxW = Math.min(800, window.innerWidth - 96);
-        const h = Math.round(maxW * 9/16);
+        const h = Math.round(maxW * 9/16) + 48;
         lbVid.width = maxW;
         lbVid.height = h;
         lbVid.style.width = maxW + 'px';
