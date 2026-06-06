@@ -884,7 +884,9 @@
     <div class="lightbox-inner">
       <button class="lightbox-close" id="lightbox-close">✕</button>
       <img id="lightbox-img" src="" alt="" style="display:none;" />
-      <iframe id="lightbox-video" src="" width="800" height="450" allow="autoplay" style="display:none;border:none;border-radius:8px;max-width:90vw;" allowfullscreen></iframe>
+      <div id="lightbox-video-wrap" style="display:none; position:relative;">
+        <iframe id="lightbox-video" src="" width="800" height="450" allow="autoplay; fullscreen" style="border:none;border-radius:8px;max-width:calc(100vw - 96px);display:block;" allowfullscreen></iframe>
+      </div>
       <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
     <button class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</button>
@@ -946,8 +948,12 @@
       overlay.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeModal(overlay)));
     });
     document.addEventListener('keydown', e => {
+      if (lb.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') { lbPrev.click(); return; }
+        if (e.key === 'ArrowRight') { lbNext.click(); return; }
+        if (e.key === 'Escape') { closeLightbox(); return; }
+      }
       if (e.key === 'Escape') {
-        if (lb.classList.contains('open')) { closeLightbox(); return; }
         document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
       }
     });
@@ -960,15 +966,15 @@
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightbox-img');
     const lbVid = document.getElementById('lightbox-video');
+    const lbVidWrap = document.getElementById('lightbox-video-wrap');
     const lbCap = document.getElementById('lightbox-caption');
     const lbPrev = document.getElementById('lightbox-prev');
     const lbNext = document.getElementById('lightbox-next');
 
-    let lbItems = []; // all lightbox-trigger els in current modal
+    let lbItems = [];
     let lbIndex = 0;
 
     function openLightbox(el) {
-      // Build items list from the same modal
       const modal = el.closest('.modal-overlay');
       lbItems = modal ? Array.from(modal.querySelectorAll('.lightbox-trigger')) : [el];
       lbIndex = lbItems.indexOf(el);
@@ -983,16 +989,23 @@
       if (!el) return;
       if (el.dataset.video) {
         lbImg.style.display = 'none';
+        // Size iframe responsively
+        const maxW = Math.min(800, window.innerWidth - 96);
+        const h = Math.round(maxW * 9/16);
+        lbVid.width = maxW;
+        lbVid.height = h;
+        lbVid.style.width = maxW + 'px';
+        lbVid.style.height = h + 'px';
         lbVid.src = el.dataset.video;
-        lbVid.style.display = 'block';
-        lbCap.textContent = el.querySelector('div:last-child')?.textContent || '';
+        lbVidWrap.style.display = 'block';
+        lbCap.textContent = el.querySelector('.vid-label')?.textContent || '';
       } else {
         const img = el.querySelector('img') || el;
-        const src = img.src ? img.src.replace('w600','w1200') : '';
+        const src = img.src ? img.src.replace('w400','w1200').replace('w600','w1200') : '';
         lbImg.src = src;
         lbImg.alt = img.alt || '';
         lbImg.style.display = 'block';
-        lbVid.style.display = 'none';
+        lbVidWrap.style.display = 'none';
         lbVid.src = '';
         lbCap.textContent = img.alt || '';
       }
@@ -1025,14 +1038,6 @@
     });
     lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-
-    // Arrow keys navigate lightbox when open
-    document.addEventListener('keydown', e => {
-      if (lb.classList.contains('open')) {
-        if (e.key === 'ArrowLeft') { lbPrev.click(); }
-        if (e.key === 'ArrowRight') { lbNext.click(); }
-      }
-    });
 
     document.querySelectorAll('.modal-media img.lightbox-trigger').forEach(img => {
       img.style.cursor = 'zoom-in';
