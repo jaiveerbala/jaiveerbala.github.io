@@ -993,15 +993,21 @@
         lbImg.style.display = 'none';
         const maxW = Math.min(800, window.innerWidth - 96);
         const baseH = Math.round(maxW * 9/16);
-        // Make iframe taller than visible area — clip the BOTTOM excess, keep video at top
-        const h = baseH + 80;
+        // Drive iframe layout: ~40px title bar at top, video, ~60px controls at bottom
+        // We expand the iframe and shift it up to hide both UI bars, showing only the video
+        const topBar = 40;
+        const bottomBar = 60;
+        const extra = topBar + bottomBar;
+        const h = baseH + extra;
         lbVid.width = maxW; lbVid.height = h;
         lbVid.style.width = maxW + 'px';
         lbVid.style.height = h + 'px';
-        lbVid.style.marginTop = '0';
+        lbVid.style.marginTop = '-' + topBar + 'px';
+        lbVid.style.display = 'block';
         lbVidWrap.style.width = maxW + 'px';
         lbVidWrap.style.height = baseH + 'px';
         lbVidWrap.style.overflow = 'hidden';
+        lbVidWrap.style.position = 'relative';
         lbVid.src = el.dataset.video;
         lbVidWrap.style.display = 'block';
         lbCap.textContent = el.querySelector('.vid-label')?.textContent || '';
