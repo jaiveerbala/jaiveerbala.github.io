@@ -929,6 +929,17 @@
       });
     });
 
+    // ── Lightbox variables (declared early so keydown handler can use lb) ──
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbVid = document.getElementById('lightbox-video');
+    const lbVidWrap = document.getElementById('lightbox-video-wrap');
+    const lbCap = document.getElementById('lightbox-caption');
+    const lbPrev = document.getElementById('lightbox-prev');
+    const lbNext = document.getElementById('lightbox-next');
+    let lbItems = [];
+    let lbIndex = 0;
+
     // ── Modal open/close ────────────────────────────────────────────
     function openModal(id) {
       const overlay = document.getElementById('modal-' + id);
@@ -940,7 +951,6 @@
     function closeModal(overlay) {
       overlay.classList.remove('open');
       document.body.style.overflow = '';
-      // pause any iframes
       overlay.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
     }
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
@@ -961,18 +971,6 @@
     // Deep link
     const hash = window.location.hash.replace('#','');
     if (hash) setTimeout(() => openModal(hash), 300);
-
-    // ── Lightbox ────────────────────────────────────────────────────
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
-    const lbVid = document.getElementById('lightbox-video');
-    const lbVidWrap = document.getElementById('lightbox-video-wrap');
-    const lbCap = document.getElementById('lightbox-caption');
-    const lbPrev = document.getElementById('lightbox-prev');
-    const lbNext = document.getElementById('lightbox-next');
-
-    let lbItems = [];
-    let lbIndex = 0;
 
     function openLightbox(el) {
       const modal = el.closest('.modal-overlay');
@@ -1037,14 +1035,6 @@
         // Remove native video if present
         const existing = document.getElementById('lightbox-native-video');
         if (existing) existing.remove();
-        lbCap.textContent = img.alt || '';
-      }
-    }
-        lbImg.src = src;
-        lbImg.alt = img.alt || '';
-        lbImg.style.display = 'block';
-        lbVidWrap.style.display = 'none';
-        lbVid.src = '';
         lbCap.textContent = img.alt || '';
       }
     }
