@@ -985,44 +985,25 @@
     function showLightboxItem(idx) {
       const el = lbItems[idx];
       if (!el) return;
+      // Remove any previous native video
+      const prev = document.getElementById('lightbox-native-video');
+      if (prev) prev.remove();
+
       if (el.dataset.video) {
         lbImg.style.display = 'none';
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const match = el.dataset.video.match(/\/d\/([^/]+)\//);
-        const fileId = match ? match[1] : null;
-
-        if (isMobile && fileId) {
-          // Use native <video> tag on mobile to avoid Drive's broken mobile UI
-          lbVidWrap.style.display = 'none';
-          lbVid.src = '';
-          // Remove any existing native video
-          const existing = document.getElementById('lightbox-native-video');
-          if (existing) existing.remove();
-          const maxW = Math.min(window.innerWidth - 96, 800);
-          const h = Math.round(maxW * 9/16);
-          const vid = document.createElement('video');
-          vid.id = 'lightbox-native-video';
-          vid.controls = true;
-          vid.playsinline = true;
-          vid.style.cssText = `width:${maxW}px;max-width:calc(100vw - 96px);height:${h}px;border-radius:8px;display:block;background:#000;`;
-          vid.src = `https://drive.google.com/uc?export=download&id=${fileId}`;
-          document.querySelector('.lightbox-inner').insertBefore(vid, lbCap);
-        } else {
-          // Desktop: remove native video if present, use iframe
-          const existing = document.getElementById('lightbox-native-video');
-          if (existing) existing.remove();
-          const maxW = Math.min(800, window.innerWidth - 96);
-          const baseH = Math.round(maxW * 9/16);
-          const extra = 60; const clip = 40;
-          lbVid.width = maxW; lbVid.height = baseH + extra;
-          lbVid.style.width = maxW + 'px'; lbVid.style.height = (baseH + extra) + 'px';
-          lbVid.style.marginTop = '-' + clip + 'px';
-          lbVidWrap.style.width = maxW + 'px';
-          lbVidWrap.style.height = (baseH + extra - clip) + 'px';
-          lbVidWrap.style.overflow = 'hidden';
-          lbVid.src = el.dataset.video;
-          lbVidWrap.style.display = 'block';
-        }
+        const maxW = Math.min(800, window.innerWidth - 96);
+        const baseH = Math.round(maxW * 9/16);
+        // Make iframe taller than visible area — clip the BOTTOM excess, keep video at top
+        const h = baseH + 80;
+        lbVid.width = maxW; lbVid.height = h;
+        lbVid.style.width = maxW + 'px';
+        lbVid.style.height = h + 'px';
+        lbVid.style.marginTop = '0';
+        lbVidWrap.style.width = maxW + 'px';
+        lbVidWrap.style.height = baseH + 'px';
+        lbVidWrap.style.overflow = 'hidden';
+        lbVid.src = el.dataset.video;
+        lbVidWrap.style.display = 'block';
         lbCap.textContent = el.querySelector('.vid-label')?.textContent || '';
       } else {
         const img = el.querySelector('img') || el;
@@ -1032,9 +1013,6 @@
         lbImg.style.display = 'block';
         lbVidWrap.style.display = 'none';
         lbVid.src = '';
-        // Remove native video if present
-        const existing = document.getElementById('lightbox-native-video');
-        if (existing) existing.remove();
         lbCap.textContent = img.alt || '';
       }
     }
@@ -1050,8 +1028,8 @@
       lb.classList.remove('open');
       lbVid.src = '';
       lbImg.src = '';
-      const existing = document.getElementById('lightbox-native-video');
-      if (existing) existing.remove();
+      const prev = document.getElementById('lightbox-native-video');
+      if (prev) prev.remove();
     }
 
     lbPrev.addEventListener('click', e => {
